@@ -16,7 +16,8 @@
 	
 	\usepackage{times}
 	\usepackage{algorithm}
-	\usepackage{algorithmic}
+	\usepackage[noend]{algpseudocode}
+	% \usepackage{algorithmic}
 	\usepackage{amsmath}
 	\usepackage{cite}
 	\usepackage{multirow}
@@ -27,7 +28,10 @@
 	\usepackage{rotating}
 	\definecolor{eplbg}{RGB}{125, 102, 94}
 	\usepackage{floatpag}	
-	
+	\usepackage{colortbl}
+	\usepackage{longtable}
+	\usepackage{booktabs} % For formal tables
+
 	%\rotfloatpagestyle{empty}
 	\floatpagestyle{plain}
 	
@@ -39,3 +43,15 @@
 	\newtheorem{proposition}{Proposition}		
 	\newtheorem{corollary}{Corollary}		
 	\newtheorem{lemma}[theorem]{Lemma}		
+
+	\DeclareMathOperator*{\argmin}{argmin}
+	\DeclareMathOperator*{\argmax}{argmax}
+	\newcommand*{\argminl}{\argmin\limits}
+	\newcommand*{\argmaxl}{\argmax\limits}
+
+
+	\newlength\mylen
+	\newcommand\myinput[1]{%
+	\settowidth\mylen{\KwIn{}}%
+	\setlength\hangindent{\mylen}%
+	\hspace*{\mylen}#1\\}

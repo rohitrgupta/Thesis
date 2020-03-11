@@ -1,22 +1,21 @@
 
 
-%Spikes which are associated with appliance switching should not be considered as fault. Power consumption in the system is generally steady with transients for starting or stopping the appliance. When we pass the data from a median filter, spikes get removed from the data without impacting the load pattern of the data as shown in the figure. used to identify Spikes without appliance switching as follows. 
+%Spikes which are associated with appliance switching should not be considered as a fault. Power consumption in the system is generally steady with transients for starting or stopping the appliance. When we pass the data from a median filter, spikes get removed from the data without impacting the load pattern of the data as shown in the figure. used to identify Spikes without appliance switching as follows. 
 
+Spikes are a very regular phenomenon in a power system. Whenever an appliance with a capacitive load is switched on it draws a very high current. Many appliances with moving parts also require high power to put the moving part in motion. The appliance draws steady power once the desired speed is achieved. In normal operation, the spike is almost always followed by an increase in the load. 
 
-%# Algorithm for Spike identification
-Spikes are very regular phenomenon in a power system, they occurs whenever a appliance is switched on. %Spikes that are associated with appliance switching should not be considered as fault. Faults are the spike after which there is no appliance load \ref{fig:regularSpike}.  
-Power consumption at the building level meter can be used to find spike in the system.
+Many heavy load appliances such come with a protection mechanism that switches off the appliance when desired parameters are not achieved. An air conditioner may switch off if the compressor motor is not rotating with the desired speed or the coolant pressure is not correct. When such failure occurs, the spike is not followed by an increase in power. An appliance like ACs also switches on the compressor when a higher temperature is detected. This switching ON and OFF operation is repeated indefinitely which results in spike at a regular interval for a long duration. 
 
-Vector $\vec{p}$ is time series of the power consumption samples collected periodically between time $0$ and  $n$. 
+Such faulty ACs may impact the health of the system and other ACs adversely. When many air conditioners are installed in building these faulty airconditioners go undetected for a long time. It is not easy to detect such spikes when a large number of appliances are installed in a building which causes regular spikes. To detect the presence of such a faulty appliance in a building we use the 1 Hz power consumption data collected at the mains meter. Let vector $\vec{p}$ is the time series of the power consumption samples collected periodically between time $0$ and  $n$. 
 
 %$$\vec{p} = \left \{  p(t) : t = 0 ... t_{max}    \right \}$$
 $$\vec{p} = [ p_0, p_1, p_3 ... p_n  ]^T $$
 
-AS the power consumption is generally steady, it can be passed through a median filter $medfit_m$ to obtain a spike free power consumption data. Width of median filter is $2 m + 1$ which is a function of spike width $m$ to be removed. 
+We apply the median filter to this data to remove the spike from the data. As the power consumption is generally steady, median filter $medfit_m$ to obtain a spike free power consumption data. The width of the median filter is $2 m + 1$ where $m$ is the number of sample for which the spikes are observed. 
 
 $$ \vec{q} = medfit_m(\vec{p}) $$
 
-difference of $\vec{p}$ and $\vec{q}$ can provide all the spikes in the system, but these spikes will be because of both faulty and non faulty appliances. If the spike are not followed by change in load, resultant $\vec{q}$ will be flat. Times when these spike are present can be identified by comparing the  positive transition in both $\vec{p}$ and $\vec{q}$. 
+The difference between $\vec{p}$ and $\vec{q}$ provides data that contains only the spikes. These are all the spikes observed in the mains meter and could be because of faulty as well as non-faulty appliances. In the second step, we identify the change in a load before and after the spike (delta) $\vec{q}$. If the difference between the two power is not significant than these spikes could be caused by the faulty appliance. 
 
 $$T_+ = \left \{ t :  p_t >  p_{t-1} + p_{threshold}   \right \}$$
 
@@ -26,8 +25,6 @@ $T_a$ are the time instances when some appliance is switched on and $T_+$ are th
 
 $$ T_s = \left \{ t :  t \in T_+,  t \notin T_a \right \} $$  
 
-Based on the values of $p_{threshold}$ and $q_{threshold}$ we may get excess number of spikes or fewer number of spike. Number of false positive spike increases when large number of appliances and a verity of appliance are involved. 
+Based on the values of $p_{threshold}$ and $q_{threshold}$ we may get excess number of spikes or fewer number of spike. In our observation. A spike that is not followed by a change in load is not a confirmation of a faulty appliance. Such a situation can be observed if multiple appliances operate simultaneously or the steady-state power drawn by the appliance is less than the threshold selected.
 
-To identify the faulty AC from these large number of false positive spikes, cyclic nature of the spike should be identified. The time interval between the consecutive spikes are identified by plotting histogram of the time interval between spikes. A unusual high value is observed in the plot for a time period equal to the periodicity of the faulty appliance. Our objective is to identify the appliance that caused the spikes at these time instance.
-
-This can be used to identify the time instance when the spike is observed. The meter installed at building level is sufficient to identify presence of spike in the data. 
+To identify the faulty AC from these large numbers of false positive spikes, the cyclic nature of the spike should be identified. The time interval between the consecutive spikes are identified by plotting histogram of the time interval between spikes. An unusual high value is observed in the plot for a time period equal to the periodicity of the faulty appliance. Our objective is to identify the appliance that caused the spikes at these time instance. This can be used to identify the time instance when the spike is observed. The meter installed at the building level is sufficient to identify the presence of spike in the data. 
