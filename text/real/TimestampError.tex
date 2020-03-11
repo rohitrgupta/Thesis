@@ -1,0 +1,40 @@
+Correctly timestamped data is crucial when we have to compare the data from two meters. {Raspberry Pi }queries multiple meters at a rate faster than the sampling rate of the meter, this may result in a delay of up to one second in reading the data. The meters are not synchronized with each other therefore the transition may get observed in different cycles in different meters. Because of this reason, it is impossible to avoid a discrepancy of 1 to 2 seconds when a transition is observed at two different meters.
+
+
+\begin{table}[h]
+		\centering
+		\caption{Correlation coefficient of unknown phase with 3 phases at \textit{Mains} meter.}
+		\begin{tabular}{ccc}
+			\hline
+			$v_1$ & $v_2$ & $v_3$  \\
+			\hline
+			0.9808 & -0.1732 & -0.1618 \\
+			\hline
+		\end{tabular}
+        %k what does that mean?
+		\label{tab:corr_coef}
+	\end{table}
+
+	A larger timestamp discrepancy is also observed in the data when a Raspberry Pi is offline or is not able to update its timestamp from the server. Updating local time from NTP server requires direct or indirect Internet access, which may not be possible in some cases which can make the timestamp unreliable. Thus a mechanism other than one based on timestamps is required to make sure that the data from multiple meters pertains to the same time instance.
+
+ The frequency of the supply voltage is maintained within a narrow range by the power generating systems. The system frequency plays a crucial role in meeting the power demand. The frequency of the power supply can be measured at any point in the electrical grid and will be the same everywhere  in the system. Whenever the load increases, the frequency decreases, this is detected by the generating systems and the power generation level is increased accordingly. This balancing is controlled by a speed governor installed at each generator.
+
+	The change in the system frequency is minimal, but it is possible to measure it with very high precision. \textit{This frequency of the supply is measured by sensing voltage;} therefore, no additional hardware is needed to measure it. Figure \ref{fig:tsCorrection} shows the frequency measured by different meters during a short interval where timestamp of one meter is slightly out of sync with the other meters. We utilize this slight variation in the frequency to identify and correct any time difference in the data collected from different smart meters.
+
+	Our objective is to identify the outliers and to recover the correct timestamp for such cases. Figure \ref{fig:tsCorrection} shows frequency samples taken from four meters. Meter 4 frequency data is not in alignment with the other meters; this is because of incorrect timestamp on this meter's data. As we do not know the source of  the misaligned data we compute the median frequency. Our objective is to find the best match for  meter 4 frequency data with the median frequency data. The intuition is to slide the meter 4 frequency data on the graph such that two waveforms coincide with each other. To check the alignment of the two waveforms the following optimization objective is used
+	\begin{equation}
+		\min_{0 \leq t_c \leq t_{max}}  \sum_{t=1}^{t_{max}}  \sqrt{abs(f_m(t)^2 - f_n(t + t_c)^2)}
+	\end{equation}where $f_m(t)$ is the median frequency at time $t$ and $f_n(t)$ is the frequency measured at meter $n$ at time instance $t$. The cost function forms a $U$ shaped curve which makes it possible to use gradient descent to find the optimal value for $t_c$.
+% rg
+The algorithm is capable of correcting timestamp errors of duration up to $t_{max} / 2$.
+%rg end
+The procedure can be summarized as follows
+	\begin{itemize}
+		\item Take data sample for interval $t$ from each meter.
+		\item Find the median frequency $f_m(t)$ for each timestamp.
+		\item Minimize the cost function to find the value of $t_c$. If $t_c$ is zero the timestamp of the given sample is correct,  else it is used to time shift the data collected from the meter.
+	\end{itemize}
+
+Timestamp correction is performed as part of the data cleaning process each time meter data is used.
+
+

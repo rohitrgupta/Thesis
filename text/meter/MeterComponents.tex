@@ -1,0 +1,16 @@
+Our objective is to design a meter that can serve as a framework for the disaggregation of power consumption also. For this purpose, we have divided the meter into the following sections. Each section of the meter is designed separately and can be replaced to provide different capabilities to the meter.
+
+The meter is divided into the following sections
+
+\begin{description}
+
+    \item [Analog section:] This section consists of the hardware that is used to convert the input signal to a level that can be sensed by the microcontroller. It includes circuits to convert the high voltage and current to the low voltage signal. As the microcontroller can only sense the $+ve$ voltage, a bias voltage is added to the signal to make it suitable for microcontroller sensing. Start of the voltage cycle should also be identified to compute the RMS value for the cycle and for the measurement of the frequency. A circuit is designed to generate additional zero crossing signals for this purpose. This section is implemented entirely as analog hardware.
+
+    \item [Sensing section:] Task of this section is to convert the analog voltage signal to digital values and compute different electrical parameters. It can consist of a single microcontroller that senses the instantaneous voltage and current at the desired frequency and computes the voltage, current and power values from the signal. In order to support the energy disaggregation, It can also perform the event detection and record the desired data based on different events. In the sample implementation, it consists of an Arduino pro mini board that is low cost.  The software is a critical part of this implementation, therefore, we have used the bare metal c++ code to perform different tasks in real time. The responsibility of this component is to provide the desired data that can be processed for energy disaggregation with ease.
+
+%shaunak
+    \item [Communication:] The prototype smart meter board supports multiple protocols like UART, SPI to communicate with other devices to log sensory information. It has a provision for an onboard ESP - 01 module with which it can send data over Wireless-LAN and an NRF24 module for near range RF communication. It can also support a Bluetooth module through the UART port and an ethernet module through the SPI interface for wired communication.
+    \item [Processing section:] This section collects the data from the sensing section and can be implemented for performing tasks like machine learning or to take appropriate action based on the events provided by the meter. In a simple energy meter, it will display the output on the LCD.
+\end{description}
+
+The interface for each section is defined in a way to provide enough flexibility so that it can be modified without impacting the other sections. The meter footprint \ref{fig:smartmetertagged2} is small and the DIP package microprocessor module is provided to ease modifications.

@@ -1,0 +1,14 @@
+A number of options are available for the power supply but all are not suitable for a smart meter. Our objectives while selecting the power supply were as follows.
+
+\begin{itemize}
+\item Should isolate the sensing circuit from the high voltage
+\item Should be small in size
+\item Should not make the meter difficult to build
+\end{itemize}
+
+As the power requirement of a meter is not high, the power rating of the supply is not a concern.
+
+Capacitor based power supply is gaining popularity because of its small size. They can be manufactured at a low cost, therefore, are included in a large number of products. Unfortunately, they do not provide isolation from the supply voltage, therefore, are mainly used in the devices which are not connected with each other. This type of power supply is used in a variety of home voltage and power measurement devices where the meter has to send the data through Wifi or only display the reading on the LCD display. A capacitive power supply may make the entire circuit at high voltage if the meter is connected in reverse. The purpose of our meter is to allow the users to alter and to try out different algorithms on it. Therefore such capacitive power supply is not suitable for our purposes.
+
+Transformer based power supplies provide isolation and come in two varieties. First, the conventional rectifier and regulator based which is heavy, large in size and less efficient the other is the SMPS type. The SMPS type is the most suitable option in this case. The meter can be powered by a separate power supply or by an onboard SMPS power supply. We made the choice of using the prebuilt SMPS.
+We selected a PCB mountable SMPS instead of a separate unit to make it a single unit.

@@ -1,0 +1,8 @@
+The G1 algorithm tries to maximize the number of states it can identify in each iteration. In each iteration the algorithm check the combination of the already selected sensors with each of the remaining sensors. Therefore the number of iterations performed by this algorithm are
+$$ n  + (n-10  + ( n-2)  ... 1 = \frac{(n +1) * n }{2}$$
+So the time complexity of this algorithm is  $O(n^2)$.
+In the figure \ref{fig:opttime} it can be observed that the time requirements for the the greedy algorithm is linear on the logarithmic scale where the time required for the brute force algorithm grows exponentially on the same scale.
+
+The number of sensors identified by the greedy 1 algorithm is almost same for the $type 2$ and $type 3$ layouts, for the $type 1$ layouts also the number of sensors required is very slightly more than the optimal number of sensors.
+
+The $greedy 2$ algorithm sorts the sensors on the basis of the there individual performance and adds them in the descending order till all the states in the system can be distinctly unidentified in the system. Therefore the time required in identifying the sensor placement is least for the greedy 2 algorithm in least but the number of sensors outputted by the this algorithm is very high which makes this algorithm less useful. In some cases the greedy 2 algorithm performed even worst than the baseline of installing sensor at all the appliances.

@@ -1,0 +1,55 @@
+The current flowing through the wire causes a proportional drop in the voltage because of the wire resistance.
+This voltage difference $ V_w$ across the wire with resistance $r_w$ is given by
+	\begin{equation}
+	 V_w = i_a r_w = \frac{P_a}{V} r_w
+	\end{equation}
+where $P_a$ is the power consumed by the appliance $a$, $V$ is the mains voltage, $i_a$ is the current flowing through the wire. As the resistance of the wire is constant and the mains voltage is always within a short range, the voltage across the wire will be proportional to the appliance power or appliance current.
+We measure this voltage across a wire to identify the current flowing through the wire and determine the appliance state.
+
+
+	The voltage observed across the appliances in the circuit is given by
+
+	\begin{equation}
+		\begin{split}
+			V_{a1} & = V - V_{r1} - V_{r4}
+			= V - r_1 i_{a1} - r_4 i_{a1} \\
+			V_{a2} & = V - V_{r2} - V_{r5}
+			= V - r_2 i_{a2} - r_5 ( i_{a2} + i_{a3}) \\
+			V_{a3} & = V - V_{r2} - V_{r5}
+			= V - r_3 i_{a3} - r_5 ( i_{a2} + i_{a3})
+		\end{split}
+	\end{equation}
+	where $V_{r1..r5}$ are the voltages across the wires $r_{1..5}$.
+%\textit{It can be observed that the voltage values across appliances 2 and 3 are not only dependent on the current drawn by the appliance itself but also on the appliance that is sharing the line wire somewhere up the supply network. }
+Because of the shared resistance $r_5$, both $V_{a2}$ and $V_{a3}$ are dependent on $i_{a2}$ and similarly $V_{a2}$ and $V_{a3}$ are also dependent on $i_{a3}$.
+For simplicity, if we assume that all the wires in the setup have the same resistance $r$, that is, they are not dependent on the length of the wires,
+the voltage drop for at each appliance is given by the follows equations
+
+	\begin{equation}\label{eq:voltageDrop}
+		\begin{split}
+			\Delta V_{a1} = & V_{r1} + V_{r4} = r (2 i_{a1}) \\
+			\Delta V_{a2} = & V_{r2} + V_{r5} = r (2 i_{a2} + i_{a3}) \\
+			\Delta V_{a3} = & V_{r3} + V_{r5} = r ( i_{a2} + 2 i_{a3} )
+		\end{split}
+	\end{equation}
+
+The voltage observed across a wire is dependent on the current flowing through the wire.
+\begin{equation}
+\label{eq:voltageeq}
+V_r \propto i_a \hspace{0.5in} \text{ or } \hspace{0.5in}V_r = \frac{z}{y} i
+\end{equation}
+%$$V_r \propto i_a
+%\hspace{0.5in} or \hspace{0.5in}
+%V_r = \frac{z}{y} i $$
+%\noindent
+where $\frac{z}{y}$ is such that when $y$ current is flowing through the resistance results in $z$ voltage across the wire.
+
+
+
+
+Voltage sensing requires knowledge of the layout and the connection between different components of the system.
+Figure \ref{fig:DistributionCircuit} shows the circuit representation of the home layout shown in the figure \ref{fig:distribution}.
+In the circuit, $App_{1} .. App_{3}$ are the appliances and the current drawn by each appliance are given by $i_{a1} .. i_{a3}$. Current for both the appliances appliance 2 and appliance 3 is supplied through the switchboard 1 therefore the current to the switchboard $i_{s1}$ will be the sum of $i_{a1}$ and $i_{a2}$, similarly $i$ is the total current flowing supplied to the system which is the sum of the current for the three appliances.
+
+Resistance of the wires connecting different components is given by $r_{1} .. r_{5}$. The wire represented by $r_{5}$ supplies power to the switchboard 1 from where appliance 2 and appliance 3 are supplied through the wires represented by $r_{2}$ and $r_{3}$ respectively. $V$ is the mains voltage and the V$_{a1} .. V_{a3}$ are the voltage observed across the appliances and $\Delta V_{a1}.. \Delta V_{a3}$ are the differences between the mains voltage and the voltage observed at the respective appliances.
+

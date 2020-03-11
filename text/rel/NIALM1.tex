@@ -1,0 +1,8 @@
+With the advancement of instrumentation technology, it became possible to collect power consumption data at an interval of one second. The time-series power data collected at this frequency clearly displays different patterns depicting the operation of individual appliances, 
+This motivated Hart \cite{hart} to compute the power consumption of individual appliances by measuring the power at only the mains and utilizing the patterns learned for the appliances. 
+Figure \ref{fig:hart1} shows the power consumption pattern for some of the appliances
+The term NIALM (Non-Intrusive Appliance Load Monitor) was introduced by Hart to represent the idea of measuring the power consumption of all the appliances without installing any measurement equipment in a house. 
+
+Initially, the active and reactive power consumption measures at the 1 Hz frequency was used to learn and identify the appliance power consumption. The power signatures as shown int the figure \ref{fig:hart2} worked reasonably well for a limited number of distinct appliances with distinct power consumption signatures. This approach of using the 1 Hz power measurement fails to provide an accurate result when a large number of the appliances are present or multiple appliances of similar appliance signature are present. This resulted in a plethora of research which tried to use different signatures to identify the status of the appliances. The research changed from non-intrusive to least intrusive and a large number of sensing techniques and algorithms were introduced to achieve the goal of power measurement. 
+
+

@@ -1,0 +1,16 @@
+\begin{algorithm}
+	\caption{Greedy algorithm for sensor placement}
+	\label{algo:greedyalgorithm}
+	\textbf{Input:} T, S, h
+	\begin{algorithmic}
+		\State $S_{sel} \gets S$
+		\While{1}
+		\State $T_{sel} \gets Project (T,S_{sel} ) $
+		\If {$|set(T_{sel})| == |T| \textrm{ or } |set(T_{sel})|==h$}
+		\Return $S_{sel}$
+		\EndIf
+		\State $ s \gets \argmaxl_{s\notin {S_{sel}}} |set(Project(T,S_{sel} + s))|$
+		\State $ S_{sel} \gets S_{sel} + s$
+		\EndWhile
+	\end{algorithmic}
+\end{algorithm}

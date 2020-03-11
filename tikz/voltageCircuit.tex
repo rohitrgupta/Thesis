@@ -1,0 +1,47 @@
+\scalebox{0.6}{
+\begin{circuitikz}
+  %\draw
+  %(0, 0) node[op amp] (opamp) {}
+  %(opamp.-) to[R] (-3, 0.5)
+  %(opamp.-) to[short,*-] ++(0,1.5) coordinate (leftC)
+  %to[R] (leftC -| opamp.out)
+  %to[short,-*] (opamp.out);
+  %;
+  \draw (2, 3) node (v1){};
+  \draw (2, 5) node (v2){};
+  \draw (5, 3) node (v1low){};
+  \draw (5, 5) node (v2low){};
+  
+  \draw (8, 1) node[ground] (gnd1){};
+  
+  \draw (7.2, 1) node (vref1)[label=left:$V_{ref}$]{};
+  
+  \draw (10.4, 5) node (opox){};
+  \draw (8, 5) node (opnx){};
+  \draw (8, 3) node (oppx){};
+
+  \draw (9.2, 3.5) node[op amp] (opamp) {}; 
+    
+  \draw (11, 3.5) node (out)[label=above:$V_{out}$]{}; 
+  
+  \draw (v1) to[sV] (v2);
+  \draw (v1) to[R, l =$R_{i1}$] (v1low)	;
+  \draw (v2) to[R, l =$R_{i1}$] (v2low) ;
+  \draw (v2low) to[R, l =$R_{s}$] (v1low)	;
+  
+  \draw (v2low) to[R, l =$R_{in}$] (opnx)	;
+  \draw (8,4) to [short] (opnx)	;
+  
+  \draw (8,2) to[R, l=$R_{in}$] (gnd1)	;
+
+  \draw (8,2) to[short] (8,3)	;
+  
+  \draw (vref1) to[R, l=$R_{ref}$, *-] (7.2,3)	;
+  
+  \draw (v1low) to [R, l =$R_{gnd}$] (oppx)	;
+  
+  \draw (opnx) to[R, l=$R_f$] (opox) -|(opamp.out);
+  \draw (opamp.out) to[short, -*] (out)	;  
+  
+\end{circuitikz}
+}

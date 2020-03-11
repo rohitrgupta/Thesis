@@ -1,0 +1,21 @@
+- System capacity issues: A client-server architecture is not suitable for such massive data collection because it may result in a bottleneck because of the server side delay in writing the data to the disk. We have adopted a multi-tier architecture suitable for a large number of sensor data logging, using an MQTT publish-subscribe router.
+
+\begin{itemize}
+ \item Raspberry-pi based data aggregator can collect data from a number of smart meters and store them locally on the SD cards. These SD cards and not suitable for very frequent writing, therefore, local writing should is only performed only when the server is not reachable. Writings should be performed in batch instead of writing every sample to further reduce the wear of the SD cards.
+\end{itemize}
+
+\begin{itemize}
+ \item Wrong labeling of data: because the meter has only 255 unique IDs and it does not provide the timestamp these two fields should be added to each sensor data sample. Both of the fields are critical for processing the data and any wrong value in these fields can result in the wrong interpretation of the data.
+\end{itemize}
+
+Automatic discovery of the sensor was implemented in the Raspberry-pi application, this enabled the Raspberry-pi to automatically configure itself. Each meter holds a meter ID, which is maintained unique in a building.  All the raspberry-Pi holds the same code and the only configuration maintained is the building name. All the details of the meter are stored on a server and can be accessed through a rest API by providing only the meter id, and the location. This made configuration of devices easy and a single spare Raspberry-Pi can be made to replace any problematic raspberry pi without any configuration change. This reduced the human error while configuring the Raspberry-pi or replacing the faulty one less error prone.
+
+\begin{itemize}
+ \item Loss of data due to network unavailability: Previously we did not have any mechanism to send the data collected when the server connection was not available.  Even though the data was logged locally it was not sent to the server and got lost.
+\end{itemize}
+
+\begin{itemize}
+ \item An automatic recovery mechanism was implemented to send the data saved on the SD card during offline status. Offline data is sent to the server through the same MQTT channel to avoid duplicate coding and reconciliation of the data.
+\end{itemize}
+
+The auto recovery mechanism in the system allowed us to focus on our research instead of fixing repeating errors as the system can recover from most of the common errors without any manual intervention. Our data collection is now the world-class quality and we are in the state of making the data publicly available.

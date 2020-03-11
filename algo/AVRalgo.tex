@@ -1,0 +1,33 @@
+\begin{algorithm}
+	\caption{High level flow of AVR program}
+	\label{algo:AVRalgo}
+\begin{algorithmic}[1]
+\State start timer timeSinceLastAdcComplete
+\While{True}
+    \If{timeSinceLastAdcComplete $>$ 80}
+	    \If{AdcComplete}
+		    \State $Q_{adc}.push(v_{adc}, i_{adc})$
+		    \State timeSinceLastAdcComplete = 0
+		\Else
+		    \State Continue
+	    \EndIf
+    \EndIf
+	\If{$! Q_{adc}.isEmpty$}
+		\State $v, i \gets Q_{adc}.pop()$
+		\State $Q_{avg}.push( v*v, i*i , v*i)$
+		\State Continue
+	\EndIf
+	\If{$! Q_{avg}.isEmpty$}
+		\State samples ++
+		\State $vv, ii, p \gets Q_{avg}.pop() $
+		\State $vv_{sum} \gets vv_{sum} + vv, ii_{sum} \gets ii_{sum} + ii$
+		\State $Q_{rms}.push(sqer(vv_{sum} /samples), sqer(ii_{sum} /samples) , v*i)$
+		\State Continue
+	\EndIf
+	\State ...
+
+\EndWhile
+
+\end{algorithmic}
+
+\end{algorithm}

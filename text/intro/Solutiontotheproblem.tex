@@ -1,0 +1,11 @@
+The problem of identification location of the faults or anomalies in the system is a complex problem that requires taking care of challenges on different fronts. It includes improving data acquisition mechanisms in terms of more accurate and frequent and timely data collection, data management and analysis of the data. Therefore, the problem is divided into the following subproblems.
+
+\textbf{To design a sensor that can sense the electrical parameter at the desired accuracy and frequency}
+
+With the introduction of the smart grid, smart meters are being installed at a large scale to collect power consumption data. Most of the commercial smart meters are designed to collect data at a reasonably high frequency of a sample every few minutes ranging from 1 to 15 minutes. On the other hand, there are industrial meters that can provide data every second but are not cost-effective. Most of the NILAM research is done on 1 Hz or higher frequency data collected with high-grade lab equipment. It is not practical to deploy any of this equipment for fault identification.
+ 
+In order to facilitate the NILAM and fault identification, we have designed a smart meter that can provide data up to 10kHz frequency. At such a high frequency the volume of data collected will be too high. To reduce the data volume, a capability is added in the smart meter to transmit the data only when a significant change in power consumption is detected. 
+
+Industrial smart meters provide data only through MODBUS protocol over RS485 ports, This results in a lot of bandwidth limitations and therefore could not be used for high-frequency data. The meter is designed to support multiple modes of communication including wireless communication and deliver large volume of data without congesting the channel bandwidth.  
+
+

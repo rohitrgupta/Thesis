@@ -1,0 +1,24 @@
+The sensing section is responsible for collecting the desired data and perform appropriate action based on the detected events. We have put minimum possible functionality in this section. Our approach is to remove any processor intensive functionality from this section which can be performed outside this section. Its tasks are as follows
+
+\begin{itemize}
+
+\item To measure voltage and current
+\item To compute the instantaneous power
+\item To identify the start and end of the cycle
+\item To compute average and then RMS values for voltage and current
+\item To compute the power consumed during a cycle
+\item To compute the power factor
+\item To generate signals when the data is available
+\item To send data
+
+\end{itemize}
+
+
+The sensing module can act as an SPI slave or UART host to communicate. It also generates a hardware signal when the data is available for reading.
+
+
+There could be multiple approaches to executing all the tasks timely. We compared multiple such approaches and evaluated the advantages and disadvantages of these approaches. The sensing section can be implemented in a large number of microcontrollers which support ADC and SPI interface like AVR, PIC, ARM, etc. We have done our sample implementation in a lower end processor Atmega32p \cite{ATmega328P8bitAVR}. We have used the Arduino Pro Mini because of its small size and ease of availability. This processor runs at a clock speed of 16 MHz and does not provide the DMA control of the ADC hardware. This processor provides a single 10 bit ADC converter with a maximum of 12KHz sampling frequency which is sufficient for this purpose. %In such low profile microcontrollers, it is difficult to implement the task compared to the ARM processors like STM32 series which runs at least 48 MHz frequency and provide DMA access of the 12 bit ADC of a much higher sampling rate.
+
+The sample implementation is done on a lower end microcontroller because it can be easily migrated to any microcontroller with more power. It provides a benchmark for the functionalities that can be supported by the sensor section on which additional functionality can be built. It also provides a low-cost implementation for building a standard smart meter.
+
+As the processor does not provide DMA to read the ADC data, ADC data should be read before the next ADC is generated. This provides limited time for performing computationally complex tasks. If any task takes twice the time as that of the interval between two ADC conversion, the ADC sample will be lost. The processor also provides only one ADC hardware therefore both the voltage and the current should be sensed by different channels connected to the same ADC hardware. In such hardware, it is impossible to sense the two channels simultaneously, therefore one channel (current) is sensed and the value for the other channel (voltage) is interpolated by taking two voltage readings and interpolating them.

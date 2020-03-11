@@ -1,0 +1,45 @@
+\begin{tikzpicture}[scale = 1.0, transform shape]
+			%\draw [help lines, red!10](-2,1) grid (14,8);
+			\coordinate (dis2) at (7,7);
+			\coordinate (dis2u) at (7,5.5);
+			
+			\draw (dis2) to [short, *-] (dis2u);
+
+			\draw (3,4)to [TL, l=$r_4$] (6,4); 
+			\draw (3,7)to [TL, l=$r_5$] (dis2); 
+			\draw (5,1) to [short, *-] (13,1);
+			
+			\draw (3,1) to [short, *-] (5,1);
+			\draw (3,5.5) to [short, *-] (3,4);
+			\draw (3,7) to [short, *-] (3,5.5);
+						
+			\draw (2.5,1) to [short, *-] (3,1);
+			\draw (2.5,4) to [short, *-*, i = $i$] (3,4);
+			\draw (3,4) to [open,v=$V$] (3,1);
+
+			\draw (6,4)to [TL, *-, l=$r_{1}$] (9,4);
+			\draw (8,4)to [short, i=$i_{a1}$] (9,4);
+
+			\draw (dis2u)to [TL, l=$r_{2}$] (11,5.5);
+			\draw (10,5.5)to [short, i=$i_{a2}$] (11,5.5);
+
+			\draw (dis2)to [TL,-, l=$r_{3}$] (11,7);
+			\draw(11,7) to [short, -] (13,7);
+			\draw (11,7) to [short, -, i=$i_{a3}$] (13,7);
+			\draw(6,7) to [short,i=$i_{s1}$, -] (dis2);
+
+			\draw (9,4) to [R, *-, l=$App_{1}$] (9,1);
+			\draw (9,4) to [open,v=$V_{a1}$] (9,1);
+
+			\draw (11,5.5) to [R, *-, l=$App_{2}$] (11,1);
+			\draw(11,5.5) to [open, v = $V_{a2}$] (11,1);
+			
+			\draw (13,7) to [R, *-, l=$App_{3}$] (13,1);
+			\draw(13,7) to [open, v = $V_{a3}$] (13,1);
+
+
+			\draw(2.2,3.8) to [open,v=$\Delta V_{a1}$] (10,3.7);
+			\draw(2.2,6.8) to [open,v=$\Delta V_{a3}$] (14,6.7);
+			\draw(2.2,5.3) to [open,v=$\Delta V_{a2}$] (12,5.2);
+						
+\end{tikzpicture}

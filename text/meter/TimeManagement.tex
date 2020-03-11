@@ -1,0 +1,29 @@
+A large number of Real-time operating systems (RTOS) are available to manage multiple tasks. Embedded processors do not have huge processing powers, therefore, the minimum time-slice for scheduling a task is generally very high. If this time slice is reduced beyond a certain limit, a majority of the processors time will be spent on context switching and not enough time will be left for processing. Therefore the time-slice provided by the RTOS is not sufficient to make a thread for analog sensing.
+
+Table \ref{tab:taskTimeRequirement} shows the total time required to execute different tasks in the AVR processor running at a 16 MHz. At the clock frequency of 16 MHz, the ADC clock frequency can be set at a maximum of 25 KHz. As each conversion in AVR takes 13 ADC clocks, the ADC sampling rate is 125 KHz /13 = 9615 Hz at this frequency.
+
+In the AVR microcontrollers, the ADC conversion is not buffered, this makes it compulsory to read the conversion registers before the completion of the next conversion. The copy data operation from the ADC buffer is a hard deadline task, failing which will make the overwrite of the buffer and therefore loss of the sensed value thereby making the final value of the meter, less accurate. The reading of ADC is done in an interrupt handler which needs around 2-3 $\mu s$ to process. This is the best that can be achieved on this processor. The processor hardware does not support ADC scan mode, therefore channel is changed in software. Since ADC is in the auto mode and starts immediately after finishing the previous conversion, channel change should be done before the next ADC starts. To make sure that this deadline is never missed, this task is also done in the ADC conversion complete interrupt.
+
+As the number of context switches is too high, implementing tasks in the preemptive RTOS, which requires high context switching time, will make the system infeasible. Because of this reason the tasks are implemented as the collaborative scheduler as stated in the algorithm \ref{alg:algo1}. As the non-preemptive scheduler, it is highly dependent on each task to follow the following rules
+
+\begin{enumerate}
+\item Tasks give the control back to the scheduler within maximum permitted time.
+\item  While returning the control back to the scheduler each task informs the scheduler about its status in the returned value. The possible return status should be one of the following.
+
+\begin{description}
+
+\item [Continue:] This return status indicates that the task has pending work but it is returning control to the scheduler because it has finished a processing unit.
+\item [Finished:] This return status indicates that the task has no pending work.
+\item [Blocked:] This return status indicates that the task has pending work but it could not complete it because of resource unavailability.
+\end{description}
+\end{enumerate}
+
+Figure \ref{fig:timing} display all the task and their relative execution cycle, a task that requires a long time are divided into small subtasks that return control to the scheduler when a subtask is finished.
+
+The system clock in maintained by a separate timer and is used by the scheduler to identify if a task can be called. A process will be called if the following conditions are met
+\begin{itemize}
+\item The task is not blocked for resources
+\item The time requirement of the processing unit of the task will not violate the deadline for next occurrence of any of the hard deadline task.
+\end{itemize}
+
+All the tasks are pipe-lined where the data processed by one task is consumed by the next task. The data buffer between the processes is implemented as queues but the restricted amount of memory available on the processor enforces the queues to be very small. The time required for each task is dependent on the number of elements present in the queue. Therefore when any process is delayed its priority will increase because the queue is less empty and the processing requirement increase as the queue is more filled.

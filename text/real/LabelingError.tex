@@ -1,0 +1,6 @@
+Sometimes it is observed that data belonging to one meter is labeled as another meter data and logged into that meter database. This happens because rs485 cable is shared for multiple meters and response from a smart meter may take too long and gets interpreted as response of the next request. The total energy consumption of each of the meter is at different levels, because of which this error is possible to identify and recover.
+
+Energy value for one of the meters will be higher than the others, therefore a sudden increase and decrease in the energy value will be observed when this error happens. As it is impossible to have a drop in the energy value, and the magnitude is more than the power consumption in the meter, it can be concluded that data from other meter is present.
+Algorithm for removing other meter data is as follows
+
+If energy is beyond the minimum and the maximum possible value discard it. The lower data belongs to the meter being sensed while the higher one is of another meter.

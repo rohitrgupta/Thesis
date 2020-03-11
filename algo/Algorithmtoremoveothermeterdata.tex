@@ -1,0 +1,15 @@
+\begin{algorithm}
+	\caption{Algorithm to remove other meter data}
+	\label{algo:Algorithmtoremoveothermeterdata}
+	\begin{algorithmic}[1] % The number tells where the line numbering should start
+		\State $E_{max} = E_{prev} + P_{max} * t_{elapsed}$
+		\State $E_{min} = E_{prev}$
+		%\If {$E_{sensed} le E_{max}  \and  E_{sensed} ge E_{min}$}
+		\If {$E_{sensed} \le E_{max} \And E_{sensed} \ge E_{min}$}
+			\State $save data$ 
+			\State $E_{prev} = E_{sensed}$
+		\Else
+			\State $discard data$
+		\EndIf
+	\end{algorithmic}
+\end{algorithm}

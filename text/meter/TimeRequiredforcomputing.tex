@@ -1,0 +1,24 @@
+% add following table
+%Operation  uint8          int16          int32          int64          float**
+%+                  63^             884           1763           8428          10943
+%*                  125^            1449          4592          57038        10422
+%/                 15859^^      15969       41866*       274809      31951
+%sqrt                                54251       54448        70884        47127
+%micros()                                            3524
+
+The time required by an AVR microcontroller, running at 16 MHz, for different operations is given below.
+
+\begin{equation}
+V_{rms} = \sqrt{\frac{\sum_{i=0}^{n} ((k* (S_i - S_{cross}))^2}{n}}
+\end{equation}
+
+For computation of $V_{rms}$ will be $ n * \tau_{ia} + n * \tau_{fm} + n * \tau_{fm} + n *  \tau_{fa} +  \tau_{fd} +  \tau_{fs}$ where the first term is subtracting $S_{cross}$, second term is for multiplication with the constant $k$, third term is for computation of the square, forth is for the summing all the squares. The term  $\tau_{fd}$ is for the division by $n$ and  $\tau_{fs}$ is for performing the square root.
+
+For 96 samples per cycle, the time required for computation based on table \ref{tab:ComputationTime} will be $~ 4.4 ms$ for just voltage calculation. After including the time required for computation of current and power, there will not be enough time left for any other task. Same computation can be performed much lesser time instead if the following computation is done
+
+\begin{equation}
+V_{rms} = k * \sqrt{\frac{\sum_{i=0}^{n}(S_i - S_{cross})^2}{n}}
+\end{equation}
+
+same result is obtained in only $ n * \tau_{ia} + n *  \tau_{im} + n *  \tau_{ia} +  \tau_{id} +  \tau_{is} +  \tau_{fm}$ us or $~ 1 ms$.  The overall execution time and the frequency of execution of different tasks is given the table \ref{tab:taskTimeRequirement}
+

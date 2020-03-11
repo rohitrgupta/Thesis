@@ -1,0 +1,43 @@
+\scalebox{.8}{
+\begin{circuitikz}
+  %\draw
+  %(0, 0) node[op amp] (opamp) {}
+  %(opamp.-) to[R] (-3, 0.5)
+  %(opamp.-) to[short,*-] ++(0,1.5) coordinate (leftC)
+  %to[R] (leftC -| opamp.out)
+  %to[short,-*] (opamp.out);
+  %;
+  
+  \draw (2, -2) node (s1){};
+  \draw (2, 3) node (s2){};
+
+  \draw (2, 0) node (v1){};
+  \draw (2, 2) node (v2){};
+  \draw (4, 0) node (v1low){};
+  \draw (4, 2) node (v2low){};
+  
+  \draw (5, 0) node (v2bias){};
+  \draw (4, -2) node (gnd1){};
+  \draw (5, -2) node[ground] (gnd2){};
+  
+  \draw (8, 0) node (vref1)[label=above:$V_{ref}$]{};
+  
+  \draw (7, 2) node (adc)[label=above:ADC]{};
+  \draw (v2low) to [short](adc);
+
+  \draw (v1) to[L, /tikz/circuitikz/bipoles/length=3.3cm] (v2);
+  \draw (s1) to[short] (s2);
+  \draw (v1) to[short] (v1low);
+  \draw (v2) to[short] (v2low);
+  
+  \draw (v2low) to[R, l =$R_b$] (v1low)	;
+  
+  \draw (v1low) to[short] (v2bias);
+  \draw (gnd1) to[short]  (gnd2);
+  \draw (gnd1) to[R, l = $R_1$] (v1low)  ;
+  \draw (v2bias) to[R, l = $R_1$] (vref1);
+  
+  \draw (v2bias) to[C, l =$1 \mu$] (gnd2)	;
+  
+\end{circuitikz}
+}

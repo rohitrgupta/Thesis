@@ -1,0 +1,5 @@
+A meter should perform the operation of sampling, computing the various power parameters like current, power, and power factor, and analyzing the data. These operations are complex and it is difficult to perform these operations together with the energy disaggregation in a single microcontroller. The option adopted by many chip manufacturers is to have multiple microcontrollers on a single chip and perform limited tasks on each microcontroller. These single-chip solutions perform sensing tasks on one microcontroller and computation task on the other and directly provide the average voltage, current, and power consumption as output. Such chips are good for making the smart meters but are not good for disaggregation task as the underlying hardware does not provide the flexibility. Making the slightest change like changing the data refresh rate is also not possible on such hardware.
+
+Hardware like Raspberry-Pi have sufficient processing power to perform sensing and processing tasks but it does not have an onboard ADC. Such single-board devices are good in computation but bad in real-time analog sensing capabilities.
+
+

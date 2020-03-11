@@ -1,0 +1,47 @@
+\begin{tikzpicture}
+\begin{scope}[xscale=2,yscale=2]
+\newcommand{\trig}{15 * pi / 180}
+\newcommand{\cutoff}{180 * pi / 180}
+\newcommand{\chargeend}{90 * pi / 180}
+\newcommand{\chargestart}{50 * pi / 180}
+%\newcommand{\i_start}{160 * pi / 180}
+\draw[very thin,color=gray!10] (0,-1) grid (8,1);
+\draw[thin, ->] (-0.2, 0) -- (7,0) node[right] {$\omega t$};
+
+\foreach \x/\xtext in {0,{\trig}/,{pi}/\pi,
+	{\cutoff}/~,{2*pi}/{2\pi}}
+\draw (\x,0.1) -- (\x,-0.1) node [below] {$\xtext$};
+
+\draw (\chargeend,.1) -- (\chargeend,.1) node [above] {$i_o$};
+\draw (\chargeend,1) -- (\chargeend,1) node [above,color=blue] {$v_o$};
+\draw (\trig,.4) -- (\trig,.4) node [above,color=red] {$v_r$};
+
+% Vs
+\draw[domain=0:7, help lines, smooth]
+ plot (\x,{sin(\x r)});
+% -Vs
+\foreach \qq [evaluate=\qq as \qqshft using \qq*pi] in {0,...,1}
+{
+	\begin{scope}[xshift=\qqshft cm,every path/.style={ultra thick,color=red}]
+	% Vo
+	\draw[domain=0:{\cutoff-pi}]
+	plot (\x,{-sin(\x r)})-- ({\cutoff-pi},0) -| (\trig,{sin(\trig r)})
+	[domain=\trig:pi] plot (\x,{sin(\x r)});
+	
+	\draw[domain=0:{\chargeend-pi}]
+    plot ({\chargeend},1) -- (\chargestart+pi,{sin(\chargestart r)})
+	[domain=\chargestart:\chargeend,color=blue,ultra thick] plot (\x,{sin(\x r)});
+
+	% Io
+	\draw	[domain=\chargestart:105 * pi / 180,color=black,thick]
+    plot (\chargestart,0) -- (\chargestart,.5)
+
+	plot (\x,.5/\x/\x -.15) ;	
+		
+	%plot (\x,{0.05 * (13.6*sin((\x - 0.646)*180/pi) - 21.2*exp(-\x/0.754))});
+	\end{scope}
+}
+%\node[right,color=red] at ({pi/2+pi/12},1.05) {$v_o$};
+%\node[right,color=blue] at ({pi/2+pi/3},0.8) {$i_o$};
+\end{scope}
+\end{tikzpicture}

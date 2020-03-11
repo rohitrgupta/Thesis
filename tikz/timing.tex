@@ -1,0 +1,36 @@
+\scalebox{1.0}{
+\begin{tikztimingtable}[timing/slope=.005, yscale=1.5]
+ADC Data available & 4L hl 19L hl 19L hl L \\
+Copy ADC data (T1) & L 4H 15L N(A1) 2L N(A2)3H 16L 4H L \\
+Compute Square and Power (T2) & 5L 3{Hl}N{A1} 16L 3{Hl} 16L \\
+Task occurring after every 50 cycles  & \\
+
+Compute Average for the cycle (T3) & 9L 6H l 6H N(CA1)  8L N(CA2) 6H 11L \\
+%Compute RMS & LLLLLLLLLLHHHHHHHHHLLLLLLLLLLLLLLHHHHHHHHHLLLL \\
+\\
+%Compute Average for a second & LLLLLLLLLLHHHHHHLHHHHHHLLLLLLLLLLHHHHHHLLLLLLL \\
+%\\
+\\ 
+\extracode
+\begin{background}
+	\node[] at (3.3,-10){Add T1};
+	\node[] at (22.5,-10){Add T1};
+	\node[] at (43.3,-10){Add T1};
+	\node[] at (11.5,-11){T2 over};
+	\node[] at (32,-11){T2 over};
+	\node[] at (38.3,-12){T3 over};
+\end{background}
+
+%\tablerules
+\begin{pgfonlayer}{background}
+%\draw[red,->](CA1.mid)to(CA2);
+\draw [blue,thick,->]
+($ (A1.mid) - (0,-1) $) to ($ (A2.mid) + (0,1) $);
+
+\draw [red, thick,->]
+($ (CA1.mid) - (0,0) $) to ($ (CA2.mid) + (0,1) $);
+
+\vertlines [help lines]{1,9,20,29.5,35.5, 41}
+
+\end{pgfonlayer}
+\end{tikztimingtable}}

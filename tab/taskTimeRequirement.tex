@@ -1,0 +1,19 @@
+\begin{table}[htb]
+	\centering
+	\caption{Total time required for each task}
+	\begin{tabular}{@{}llrrrr@{}}
+		 Task  &  Deadline  &  Deadline  &  Processing  &  Execution  &  Total \\
+		  &  type  &  time $\mu s$ &  Time $\mu s$ &  count  &  time $\mu s$ \\
+	\midrule
+		Copy data from ADC buffer  &  Hard              & 100 & 2 & 10000 & 20000 \\
+		Compute power                &  Soft              & 100 & 5 & 10000 & 50000 \\
+		Compute  square of each sample              &  Soft              & 100 & 5 & 10000 & 50000 \\
+		Compute average for a cycle  &  Soft              & 2000 & 30 & 50 & 1500 \\
+		Compute square root for RMS  &  Soft              & 2000 & 130 & 50 & 6500 \\
+		Compute   average across cycles       &  Soft              & 2000 & 130 & 50 & 6500 \\
+		Final   data preparation  &  Soft              & 2000 & 100 & 50 & 5000 \\
+		Total  &   &   &   & 30200 & 139500 \\
+	\bottomrule
+	\end{tabular}
+	\label{tab:taskTimeRequirement}
+\end{table}

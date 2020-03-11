@@ -1,0 +1,355 @@
+@article{hart,
+  title = {Nonintrusive Appliance Load Monitoring},
+  volume = {80},
+  issn = {0018-9219},
+  abstract = {A nonintrusive appliance load monitor that determines the energy consumption of individual appliances turning on and off in an electric load, based on detailed analysis of the current and voltage of the total load, as measured at the interface to the power source is described. The theory and current practice of nonintrusive appliance load monitoring are discussed, including goals, applications, load models, appliance signatures, algorithms, prototypes field-test results, current research directions, and the advantages and disadvantages of this approach relative to intrusive monitoring},
+  number = {12},
+  journal = {Proceedings of the IEEE},
+  doi = {10.1109/5.192069},
+  author = {Hart, G. W.},
+  month = dec,
+  year = {1992},
+  keywords = {Monitoring,energy consumption,Energy consumption,appliance load monitoring,appliance signatures,current,Current measurement,electric load,Electric variables measurement,Energy measurement,Home appliances,load (electric),Load modeling,load models,nonintrusive monitor,power consumption,Power measurement,power system measurement,Turning,Voltage,monitoring,voltage,@cited_cps,@NILM,\#smartmeter:datausage,@inCalibre,@report},
+  pages = {1870-1891},
+  file = {/home/rohit/Zotero/storage/XHZYXCWE/Hart - 1992 - Nonintrusive appliance load monitoring.pdf},
+  note = {B}
+}
+
+@inproceedings{patelFlickSwitchDetecting2007,
+  address = {{Berlin, Heidelberg}},
+  series = {{{UbiComp}} '07},
+  title = {At the {{Flick}} of a {{Switch}}: {{Detecting}} and {{Classifying Unique Electrical Events}} on the {{Residential Power Line}}},
+  isbn = {978-3-540-74852-6},
+  shorttitle = {At the {{Flick}} of a {{Switch}}},
+  abstract = {Activity sensing in the home has a variety of important applications, including healthcare, entertainment, home automation, energy monitoring and post-occupancy research studies. Many existing systems for detecting occupant activity require large numbers of sensors, invasive vision systems, or extensive installation procedures. We present an approach that uses a single plug-in sensor to detect a variety of electrical events throughout the home. This sensor detects the electrical noise on residential power lines created by the abrupt switching of electrical devices and the noise created by certain devices while in operation. We use machine learning techniques to recognize electrically noisy events such as turning on or off a particular light switch, a television set, or an electric stove. We tested our system in one home for several weeks and in five homes for one week each to evaluate the system performance over time and in different types of houses. Results indicate that we can learn and classify various electrical events with accuracies ranging from 85-90\%.},
+  booktitle = {Proceedings of the 9th {{International Conference}} on {{Ubiquitous Computing}}},
+  publisher = {{Springer-Verlag}},
+  author = {Patel, Shwetak N. and Robertson, Thomas and Kientz, Julie A. and Reynolds, Matthew S. and Abowd, Gregory D.},
+  year = {2007},
+  keywords = {@read,@NILM,@report},
+  pages = {271--288},
+  file = {/home/rohit/Zotero/storage/RITSTX5H/At_the_flick_of_a_switch_detecting_and_classifying.pdf}
+}
+
+@misc{SmartBuildingManagement,
+  title = {Smart {{Building Management}}},
+  abstract = {Verdigris enables smart buildings through AI and properitary real-time energy monitoring hardware. Verdigris delivers insights on energy usage per device when its critical to see it.},
+  journal = {Verdigris},
+  howpublished = {http://verdigris.co/},
+  keywords = {@NILM,@report}
+}
+
+@inproceedings{BOLT,
+  address = {{New York, NY, USA}},
+  series = {{{BuildSys}} '16},
+  title = {{{BOLT}}: {{Energy Disaggregation}} by {{Online Binary Matrix Factorization}} of {{Current Waveforms}}},
+  isbn = {978-1-4503-4264-3},
+  shorttitle = {{{BOLT}}},
+  abstract = {In this paper we introduce BOLT, a novel approach for the problem of energy disaggregation that performs online binary matrix factorization on a sequence of high frequency current cycles collected in a building to infer additive subcomponents of the current signal. The system learns these constituent current waveforms in an unsupervised fashion and, in a subsequent step, seeks to find combinations of these subcomponents that constitute appliances. By doing so, points in time when appliances are active and, to some degree, their power consumption can be estimated by BOLT. Our system treats energy disaggregation as a binary matrix factorization problem and uses a neural network, with binary activations in the one but last layer and a linear output layer, to solve it. The algorithmic performance of the proposed method is evaluated on a publicly available dataset. Furthermore, we show that, once the model is trained, the algorithm can perform inference in real-time on inexpensive off-the-shelf and general purpose hardware which allows leveraging high-frequency information without having to explicitly transmit and store large amounts of data to a centralized repository.},
+  booktitle = {Proceedings of the 3rd {{ACM International Conference}} on {{Systems}} for {{Energy}}-{{Efficient Built Environments}}},
+  publisher = {{ACM}},
+  doi = {10.1145/2993422.2993581},
+  author = {Lange, Henning and Berg{\'e}s, Mario},
+  year = {2016},
+  keywords = {Disaggregation,Non-Intrusive Load Monitoring,OpenEnergyMonitor,Real-Time Inference,Printed,@read,@cited_cps,@NILM,\#smartmeter:Usage,@inCalibre,@report},
+  pages = {11--20},
+  file = {/home/rohit/Zotero/storage/8WBQJV66/Bergés - BOLT Energy Disaggregation by Online Binary Matrix Factorization of Current Waveforms.pdf}
+}
+
+@article{hassanEmpiricalInvestigationVI2014,
+  series = {{{SmartGrid}}'14},
+  title = {An {{Empirical Investigation}} of {{V}}-{{I Trajectory Based Load Signatures}} for {{Non}}-{{Intrusive Load Monitoring}}},
+  volume = {5},
+  issn = {1949-3053},
+  abstract = {Choice of load signature or feature space is one of the most fundamental design choices for non-intrusive load monitoring or energy disaggregation problem. Electrical power quantities, harmonic load characteristics, canonical transient and steady-state waveforms are some of the typical choices of load signature or load signature basis for current research addressing appliance classification and prediction. This paper expands and evaluates appliance load signatures based on V-I trajectory-the mutual locus of instantaneous voltage and current waveforms-for precision and robustness of prediction in classification algorithms used to disaggregate residential overall energy use and predict constituent appliance profiles. We also demonstrate the use of variants of differential evolution as a novel strategy for selection of optimal load models in context of energy disaggregation. A publicly available benchmark dataset REDD is employed for evaluation purposes. Our experimental evaluations indicate that these load signatures, in conjunction with a number of popular classification algorithms, offer better or generally comparable overall precision of prediction, robustness and reliability against dynamic, noisy and highly similar load signatures with reference to electrical power quantities and harmonic content. Herein, wave-shape features are found to be an effective new basis of classification and prediction for semi-automated energy disaggregation and monitoring.},
+  number = {2},
+  journal = {IEEE Transactions on Smart Grid},
+  doi = {10.1109/TSG.2013.2271282},
+  author = {Hassan, T. and Javed, F. and Arshad, N.},
+  month = mar,
+  year = {2014},
+  keywords = {Home appliances,power system measurement,optimization,Training,nonintrusive load monitoring,Disaggregation,domestic appliances,appliance classification,electrical power quantities,energy monitoring,Feedforward neural networks,harmonic load characteristics,load monitoring,load signature,power system harmonics,Prediction algorithms,smart grids,Sociology,Statistics,supervised learning,support vector machines,Switches,V-I trajectory based load signatures,@read,@cited_cps,@NILM,\#smartmeter:datausage,\#smartmeterToadd,@inCalibre,@report},
+  pages = {870-878},
+  file = {/home/rohit/Zotero/storage/8MVQ4WIJ/Hassan, Javed, Arshad - An Empirical Investigation of V-I Trajectory Based Load Signatures for Non-Intrusive Load Monitoring.pdf;/home/rohit/Zotero/storage/NE3UII3V/V-I Trajectory.pdf},
+  note = {B}
+}
+
+@inproceedings{guptaElectriSenseSinglepointSensing2010,
+  address = {{New York, NY, USA}},
+  series = {{{UbiComp}} '10},
+  title = {{{ElectriSense}}: {{Single}}-Point {{Sensing Using EMI}} for {{Electrical Event Detection}} and {{Classification}} in the {{Home}}},
+  isbn = {978-1-60558-843-8},
+  shorttitle = {{{ElectriSense}}},
+  abstract = {This paper presents ElectriSense, a new solution for automatically detecting and classifying the use of electronic devices in a home from a single point of sensing. ElectriSense relies on the fact that most modern consumer electronics and fluorescent lighting employ switch mode power supplies (SMPS) to achieve high efficiency. These power supplies continuously generate high frequency electromagnetic interference (EMI) during operation that propagates throughout a home's power wiring. We show both analytically and by in-home experimentation that EMI signals are stable and predictable based on the device's switching frequency characteristics. Unlike past transient noise-based solutions, this new approach provides the ability for EMI signatures to be applicable across homes while still being able to differentiate between similar devices in a home. We have evaluated our solution in seven homes, including one six-month deployment. Our results show that ElectriSense can identify and classify the usage of individual devices with a mean accuracy of 93.82\%.},
+  booktitle = {Proceedings of the 12th {{ACM International Conference}} on {{Ubiquitous Computing}}},
+  publisher = {{ACM}},
+  doi = {10.1145/1864349.1864375},
+  author = {Gupta, Sidhant and Reynolds, Matthew S. and Patel, Shwetak N.},
+  year = {2010},
+  keywords = {energy monitoring,activity recognition,@cited_cps,activity sensing,infrastructure-mediated sensing,@NILM,\#smartmeter:Requirement,@inCalibre,@report},
+  pages = {139--148},
+  file = {/home/rohit/Zotero/storage/YUWCU8HS/Award et al. - ElectriSense Single-Point Sensing Using EMI for Electrical Event Detection and Classification in t.pdf}
+}
+
+@article{chenWhatCanWe2015,
+  title = {What Can We Learn from High-Frequency Appliance-Level Energy Metering? {{Results}} from a Field Experiment},
+  volume = {77},
+  issn = {03014215},
+  shorttitle = {What Can We Learn from High-Frequency Appliance-Level Energy Metering?},
+  language = {en},
+  journal = {Energy Policy},
+  doi = {10.1016/j.enpol.2014.11.021},
+  author = {Chen, Victor L. and Delmas, Magali A. and Kaiser, William J. and Locke, Stephen L.},
+  month = feb,
+  year = {2015},
+  keywords = {@NILM,@report},
+  pages = {164-175},
+  file = {/home/rohit/Zotero/storage/5SEDKCMJ/Chen et al. - What can we learn from high-frequency appliance-level energy metering Results from a fi eld experiment.pdf}
+}
+
+@inproceedings{hnatHitchhikerGuideSuccessful2011,
+  title = {The Hitchhiker's Guide to Successful Residential Sensing Deployments},
+  booktitle = {Proceedings of the 9th {{ACM Conference}} on {{Embedded Networked Sensor Systems}}},
+  publisher = {{ACM}},
+  author = {Hnat, Timothy W. and Srinivasan, Vijay and Lu, Jiakang and Sookoor, Tamim I. and Dawson, Raymond and Stankovic, John and Whitehouse, Kamin},
+  year = {2011},
+  keywords = {@sensing,@inCalibre,@report},
+  pages = {232--245},
+  file = {/home/rohit/Zotero/storage/6NA2WUVL/Hnat et al. - The hitchhiker's guide to successful residential sensing deployments.pdf}
+}
+
+@inproceedings{ganuNPlugSmartPlug2012,
+  address = {{New York, NY, USA}},
+  series = {E-{{Energy}} '12},
+  title = {{{nPlug}}: {{A Smart Plug}} for {{Alleviating Peak Loads}}},
+  isbn = {978-1-4503-1055-0},
+  shorttitle = {{{nPlug}}},
+  abstract = {The Indian electricity sector, despite having the world's fifth largest installed capacity, suffers from a 12.9\% peaking shortage. This shortage could be alleviated, if a large number of deferrable loads, particularly the high powered ones, could be moved from on-peak to off-peak times. However, conventional DSM strategies may not be suitable for India as the local conditions usually favor only inexpensive solutions with minimal dependence on the pre-existing infrastructure. In this work, we present nPlug, a smart plug that sits between the wall socket and deferrable loads such as water heaters, washing machines, and electric vehicles. nPlugs combine real-time sensing and analytics to infer peak periods as well as supply-demand imbalance and reschedule attached appliances in a decentralized manner to alleviate peaks whenever possible. They do not require any manual intervention by the end consumer nor any enhancements to the appliances or existing infrastructure. Some of nPlug's capabilities are demonstrated using experiments on a combination of synthetic and real data collected from plug-level energy monitors. Our results indicate that nPlug can be an effective and inexpensive technology to address the peaking shortage.},
+  booktitle = {Proceedings of the 3rd {{International Conference}} on {{Future Energy Systems}}: {{Where Energy}}, {{Computing}} and {{Communication Meet}}},
+  publisher = {{ACM}},
+  doi = {10.1145/2208828.2208858},
+  author = {Ganu, Tanuja and Seetharam, Deva P. and Arya, Vijay and Kunnath, Rajesh and Hazra, Jagabondhu and Husain, Saiful A and De Silva, Liyanage Chandratilake and Kalyanaraman, Shivkumar},
+  year = {2012},
+  keywords = {scheduling,smart plug,demand side management,demand response,multiple access,peak loads,@cited_cps,@NILM,@inCalibre,@report},
+  pages = {30:1--30:10},
+  file = {/home/rohit/Zotero/storage/NBPDV9UP/Ganu et al. - 2012 - nPlug A Smart Plug for Alleviating Peak Loads.pdf}
+}
+
+@article{haoAncillaryServiceGrid2014,
+  title = {Ancillary {{Service}} to the {{Grid Through Control}} of {{Fans}} in {{Commercial Building HVAC Systems}}},
+  volume = {5},
+  issn = {1949-3053, 1949-3061},
+  abstract = {The thermal storage potential in commercial buildings is an enormous resource for providing various ancillary services to the grid. In this paper, we show how fans in Heating, Ventilation, and Air Conditioning (HVAC) systems of commercial buildings alone can provide substantial frequency regulation service, with little change in their indoor environments. A feedforward architecture is proposed to control the fan power consumption to track a regulation signal. The proposed control scheme is then tested through simulations based on a calibrated high fidelity non-linear model of a building. Model parameters are identified from data collected in Pugh Hall, a commercial building located on the University of Florida campus. For the HVAC system under consideration, numerical experiments demonstrate how up to 15\% of the rated fan power can be deployed for regulation purpose while having little effect on the building indoor temperature. The regulation signal that can be successfully tracked is constrained in the frequency band [1/{$\tau$}0, 1/{$\tau$}1], where {$\tau$}0 {$\approx$} 3 minutes and {$\tau$}1 {$\approx$} 8 seconds. Our results indicate that fans in existing commercial buildings in the U.S. can provide about 70\% of the current national regulation reserve requirements in the aforementioned frequency band. A unique advantage of the proposed control scheme is that assessing the value of the ancillary service provided is trivial, which is in stark contrast to many demand-response programs.},
+  language = {en},
+  number = {4},
+  journal = {IEEE Transactions on Smart Grid},
+  doi = {10.1109/TSG.2014.2322604},
+  author = {Hao, He and Lin, Yashen and Kowli, Anupama S. and Barooah, Prabir and Meyn, Sean},
+  month = jul,
+  year = {2014},
+  keywords = {@NILM,@report},
+  pages = {2066-2074},
+  file = {/home/rohit/Zotero/storage/E2DQK4HM/Hao et al. - 2014 - Ancillary Service to the Grid Through Control of F.pdf}
+}
+
+@inproceedings{wangPhaseIdentificationElectric2016,
+  title = {Phase {{Identification}} in {{Electric Power Distribution Systems}} by {{Clustering}} of {{Smart Meter Data}}},
+  abstract = {Accurate network and phase connectivity models are crucial to distribution system analytics, operations and planning. Although network connectivity information is mostly reliable, phase connectivity data is typically missing or erroneous. In this paper, an innovative phase identification algorithm is developed by clustering of voltage time series gathered from smart meters. The feature-based clustering approach is adopted where principal component analysis is first carried out to extract feature vectors from the raw time series. A constrained k-means clustering algorithm is then executed to separate customers/smart meters into various phase connectivity groups. The algorithm is applied on a real distribution feeder in Southern California Edison's service territory. The accuracy of the proposed algorithm is over 90\%.},
+  booktitle = {2016 15th {{IEEE International Conference}} on {{Machine Learning}} and {{Applications}} ({{ICMLA}})},
+  doi = {10.1109/ICMLA.2016.0050},
+  author = {Wang, W. and Yu, N. and Foggo, B. and Davis, J. and Li, J.},
+  month = dec,
+  year = {2016},
+  keywords = {data mining,Feature extraction,smart meters,Clustering algorithms,Time series analysis,phase identification,distribution networks,time series,smart meter,Data mining,Smart meters,constrained k-means clustering algorithm,distribution system analytics,electric power distribution systems,electric power generation,feature vector extraction,innovative phase identification algorithm,k-means clustering,network connectivity information,network connectivity models,phase connectivity models,principal component analysis,Principal component analysis,raw time series,smart meter data clustering,Southern California Edison service territory,voltage time series,@inCalibre,@report},
+  pages = {259-265},
+  file = {/home/rohit/Zotero/storage/WWMWFSDC/Wang et al. - 2016 - Phase Identification in Electric Power Distributio.pdf}
+}
+
+@inproceedings{mitraVoltageCorrelationsSmart2015,
+  address = {{New York, NY, USA}},
+  series = {{{KDD}} '15},
+  title = {Voltage {{Correlations}} in {{Smart Meter Data}}},
+  isbn = {978-1-4503-3664-2},
+  abstract = {The connectivity model of a power distribution network can easily become outdated due to system changes occurring in the field. Maintaining and sustaining an accurate connectivity model is a key challenge for distribution utilities worldwide. This work shows that voltage time series measurements collected from customer smart meters exhibit correlations that are consistent with the hierarchical structure of the distribution network. These correlations may be leveraged to cluster customers based on common ancestry and help verify and correct an existing connectivity model. Additionally, customers may be clustered in combination with voltage data from circuit metering points, spatial data from the geographical information system, and any existing but partially accurate connectivity model to infer customer to transformer and phase connectivity relationships with high accuracy. We report analysis and validation results based on data collected from multiple feeders of a large electric distribution network in North America. To the best of our knowledge, this is the first large scale measurement study of customer voltage data and its use in inferring network connectivity information.},
+  booktitle = {Proceedings of the 21th {{ACM SIGKDD International Conference}} on {{Knowledge Discovery}} and {{Data Mining}}},
+  publisher = {{ACM}},
+  doi = {10.1145/2783258.2788594},
+  author = {Mitra, Rajendu and Kota, Ramachandra and Bandyopadhyay, Sambaran and Arya, Vijay and Sullivan, Brian and Mueller, Richard and Storey, Heather and Labut, Gerard},
+  year = {2015},
+  keywords = {data mining,clustering,power distribution grids,topology inference,voltage time series,\#VoltagePhase,@inCalibre,@report},
+  pages = {1999--2008},
+  file = {/home/rohit/Zotero/storage/RBX8K6C2/Mitra et al. - 2015 - Voltage Correlations in Smart Meter Data.pdf}
+}
+
+@misc{ElectricalWireGauges,
+  title = {Electrical {{Wire Gauges}}},
+  howpublished = {http://hyperphysics.phy-astr.gsu.edu/hbase/Tables/wirega.html},
+  keywords = {@report}
+}
+
+@inproceedings{debruinPowerBladeLowProfileTruePower2015,
+  address = {{New York, NY, USA}},
+  series = {{{SenSys}} '15},
+  title = {{{PowerBlade}}: {{A Low}}-{{Profile}}, {{True}}-{{Power}}, {{Plug}}-{{Through Energy Meter}}},
+  isbn = {978-1-4503-3631-4},
+  shorttitle = {{{PowerBlade}}},
+  abstract = {We present PowerBlade, the smallest, lowest cost, and lowest power AC plug-load meter that measures real, reactive and apparent power, and reports this data, along with cumulative energy consumption, over an industry-standard Bluetooth Low Energy radio. Achieving this design point requires revisiting every aspect of conventional power meters: a new method of acquiring voltage; a non-invasive, planar method of current measurement; an efficient and accurate method of computing power from the voltage and current channels; a radio interface that leverages nearby smart phones to display data and report it to the cloud; and a retro power supply re-imagined with vastly lower current draw, allowing extreme miniaturization. PowerBlade occupies a mere 1" \texttimes{} 1" footprint, offers a 1/16" profile, draws less than 180 mW itself, offers 1.13\% error on unity power factor loads in the 2-1200 W range and slightly worse for non-linear and reactive loads, and costs \$11 in modest quantities of about 1,000 units. This new design point enables affordable large-scale studies of plug-load energy usage--an area of growing national importance.},
+  booktitle = {Proceedings of the 13th {{ACM Conference}} on {{Embedded Networked Sensor Systems}}},
+  publisher = {{ACM}},
+  doi = {10.1145/2809695.2809716},
+  author = {DeBruin, Samuel and Ghena, Branden and Kuo, Ye-Sheng and Dutta, Prabal},
+  year = {2015},
+  keywords = {data aggregation,intermittent power,power metering,energy metering,smart meter,@read,ac meter,plug-load metering,wireless sensor,\#smartmeter:design,@inCalibre,@report},
+  pages = {17--29},
+  file = {/home/rohit/Zotero/storage/ACUJMKM4/DeBruin et al. - 2015 - PowerBlade A Low-Profile, True-Power, Plug-Throug.pdf}
+}
+
+@inproceedings{gulatiDepthStudyUsing2014,
+  address = {{New York, NY, USA}},
+  series = {{{BuildSys}} '14},
+  title = {An in {{Depth Study}} into {{Using EMI Signatures}} for {{Appliance Identification}}},
+  isbn = {978-1-4503-3144-9},
+  abstract = {Energy conservation is a key factor towards long term energy sustainability. Real-time end user energy feedback, using disaggregated electric load composition, can play a pivotal role in motivating consumers towards energy conservation. Recent works have explored using high frequency conducted electromagnetic interference (EMI) on power lines as a single point sensing parameter for monitoring common home appliances. However, key questions regarding the reliability and feasibility of using EMI signatures for non-intrusive load monitoring over multiple appliances across different sensing paradigms remain unanswered. This work presents some of the key challenges towards using EMI as a unique and time invariant feature for load disaggregation. In-depth empirical evaluations of a large number of appliances in different sensing configurations are carried out, in both laboratory and real world settings. Insights into the effects of external parameters such as line impedance, background noise and appliance coupling on the EMI behavior of an appliance are realized through simulations and measurements. A generic approach for simulating the EMI behavior of an appliance that can then be used to do a detailed analysis of real world phenomenology is presented. The simulation approach is validated with EMI data from a router. Our EMI dataset - High Frequency EMI Dataset (HFED) is also released.},
+  booktitle = {Proceedings of the 1st {{ACM Conference}} on {{Embedded Systems}} for {{Energy}}-{{Efficient Buildings}}},
+  publisher = {{ACM}},
+  doi = {10.1145/2674061.2674070},
+  author = {Gulati, Manoj and Ram, Shobha Sundar and Singh, Amarjeet},
+  year = {2014},
+  keywords = {NILM,alternating current (AC),buck converter,direct current (DC),electromagnetic interference (EMI),EMI,high pass filter,SMPS,@read,\#smartmeter:Requirement,@inCalibre,@report},
+  pages = {70--79},
+  file = {/home/rohit/Zotero/storage/YCCFGVAK/Gulati et al. - 2014 - An in Depth Study into Using EMI Signatures for Ap.pdf}
+}
+
+@misc{KillWattMeter,
+  title = {Kill {{A Watt Meter}} - {{Electricity Usage Monitor}} | {{P3}}},
+  howpublished = {http://www.p3international.com/products/p4400.html},
+  keywords = {\#smartmeter:products,@inCalibre,@report},
+  file = {/home/rohit/Zotero/storage/DU2DFS5N/Kill A Watt Meter - Electricity Usage Monitor  P3.pdf;/home/rohit/Zotero/storage/9JFAY47B/p4400.html}
+}
+
+@inproceedings{mogheDesignLowCost2010,
+  title = {Design of a Low Cost Self Powered ``{{Stick}}-on'' Current and Temperature Wireless Sensor for Utility Assets},
+  abstract = {Utilities require improved monitoring of their assets to ensure reliable power for their customers. Sensors presently available in the market cater to measuring multiple asset parameters and thus are expensive. This inhibits the utilities' ability to deploy such sensors on a large scale. This paper addresses design and implementation of a low cost self-powered ``Stick-on'' wireless current and temperature sensor that can be mass deployed by utilities. Novel energy harvesting circuit design techniques have been discussed and shown to operate over a wide current range. Technical challenges pertaining to energy storage, communication network, temperature and current sensing have been analyzed given the constraints of low cost. A first prototype has been developed and shown to operate successfully. The envisioned Stick-on sensor has the capability to monitor a variety of utility assets. Technology solutions like these hold prime importance as the power grid moves towards a Smart Grid.},
+  booktitle = {2010 {{IEEE Energy Conversion Congress}} and {{Exposition}}},
+  doi = {10.1109/ECCE.2010.5618430},
+  author = {Moghe, R. and Yang, Y. and Lambert, F. and Divan, D.},
+  month = sep,
+  year = {2010},
+  keywords = {wireless sensor networks,smart grid,Wireless communication,Current measurement,smart power grids,power grid,wireless communication,communication network,Temperature measurement,electric sensing devices,AC-DC converter,Batteries,energy storage,temperature sensors,Temperature sensors,energy harvesting,Zigbee,current sensor,Ac-dc converter,Conductors,Converters,current sensing,energy harvesting circuit design techniques,low cost self powered stick-on wireless current design,signal conditioning,smart sensor,temperature sensor,temperature wireless sensor,utility asset monitor,utility assets,\#exclude energy harvasting sensor,@inCalibre,@report},
+  pages = {4453-4460},
+  file = {/home/rohit/Zotero/storage/IH93ZHLT/Moghe et al. - 2010 - Design of a low cost self powered “Stick-on” curre.pdf}
+}
+
+@inproceedings{debruinMonjoloEnergyharvestingEnergy2013,
+  address = {{New York, NY, USA}},
+  series = {{{SenSys}} '13},
+  title = {Monjolo: {{An Energy}}-Harvesting {{Energy Meter Architecture}}},
+  isbn = {978-1-4503-2027-6},
+  shorttitle = {Monjolo},
+  abstract = {Conventional AC power meters perform at least two distinct functions: power conversion, to supply the meter itself, and energy metering, to measure the load consumption. This paper presents Monjolo, a new energy-metering architecture that combines these two functions to yield a new design point in the metering space. The key insight underlying this work is that the output of a current transformer -- nominally used to measure a load current -- can be harvested and used to intermittently power a wireless sensor node. The hypothesis is that the node's activation frequency increases monotonically with the primary load's draw, making it possible to estimate load power from the interval between activations, assuming the node consumes a fixed energy quanta during each activation. This paper explores this thesis by designing, implementing, and evaluating the Monjolo metering architecture. The results demonstrate that it is possible to build a meter that draws zero-power under zero-load conditions, offers high accuracy for near-unity power factor loads, works with non-unity power factor loads in combination with a whole-house meter, wirelessly reports readings to a data aggregator, is resilient to communication failures, and is parsimonious with the radio channel, even under heavy loads. Monjolo eliminates the high-voltage AC-DC power supply and AC metering circuitry present in earlier designs, enabling a smaller, simpler, safer, and lower-cost design point that supports novel deployment scenarios like non-intrusive circuit-level metering.},
+  booktitle = {Proceedings of the 11th {{ACM Conference}} on {{Embedded Networked Sensor Systems}}},
+  publisher = {{ACM}},
+  doi = {10.1145/2517351.2517363},
+  author = {DeBruin, Samuel and Campbell, Bradford and Dutta, Prabal},
+  year = {2013},
+  keywords = {wireless sensor networks,data aggregation,intermittent power,power metering,energy harvesting,\#smartmeter:design,@inCalibre,@report},
+  pages = {18:1--18:14},
+  file = {/home/rohit/Zotero/storage/V4TWDZYD/DeBruin et al. - 2013 - Monjolo An Energy-harvesting Energy Meter Archite.pdf}
+}
+
+@inproceedings{villaniContactlessThreephaseAutonomous2016,
+  title = {A Contactless Three-Phase Autonomous Power Meter},
+  abstract = {Electrical energy management is becoming crucial to optimize the generation and usage of power. Therefore, measurement of parameters (such as amplitude and/or phase shift) of electrical systems is of the utmost importance for achieving efficient control on power usage of electric loads in residential and industrial buildings. Most of the existing smart metering devices available on the market need voltage probes which are invasive, because they need a direct connection with the potentials being measured. We present an innovative low-cost clamp-on power meter, designed and optimized for three-phase systems. It can be installed without temporary interruption of the supply directly on the cable insulators and can measure simultaneously both current and voltage of the underneath wires, providing accurate measurements of apparent power, active power, reactive power and power factor. Moreover an energy harvesting unit extracts the necessary energy to supply the meter without electrical contact, permitting to install the device without need of batteries or power plugs. Experimental results show the accuracy of the measurements and the autonomy of the small size and compact power meter.},
+  booktitle = {2016 {{IEEE SENSORS}}},
+  doi = {10.1109/ICSENS.2016.7808627},
+  author = {Villani, C. and Benatti, S. and Brunelli, D. and Benini, L.},
+  month = oct,
+  year = {2016},
+  keywords = {Sensors,Monitoring,Current measurement,Power measurement,voltage measurement,Voltage measurement,power meters,Smart meters,current measurement,electric current measurement,energy harvesting,active power measurement,amplitude measurement,apparent power measurement,cable insulator,contactless three-phase autonomous clamp-on power meter,electrical contact,electrical energy management,phase shift measurement,power factor measurement,Probes,reactive power measurement,smart metering device,voltage probe,@inCalibre,@report},
+  pages = {1-3},
+  file = {/home/rohit/Zotero/storage/LZ58JGTM/Villani et al. - 2016 - A contactless three-phase autonomous power meter.pdf}
+}
+
+@inproceedings{al-aliIoTBasedSmartUtility2018,
+  title = {An {{IoT}}-{{Based Smart Utility Meter}}},
+  abstract = {Empowered by the Internet of Things (IoT) technology, the consumption of electricity, water, and gas by appliances in residential units can be collected more frequently nowadays. However, these meters are still discrete and placed in different locations in apartments or houses. This paper proposes the design, development, and testing of an integrated IoT-based smart utility meter that monitors the consumption of electricity, water, and gas. The meter has a unique network address and can be programmed remotely to read the three utility consumptions at any desired frequency that can be set by the utility service providers. End consumers can access the meter through a personal computer or a mobile handset. Google Map markers are used to the display the status of the meter showing the consumption of each utility and whether the meter is connected or disconnected.},
+  booktitle = {2018 2nd {{International Conference}} on {{Smart Grid}} and {{Smart Cities}} ({{ICSGSC}})},
+  doi = {10.1109/ICSGSC.2018.8541314},
+  author = {{Al-Ali}, A. R. and Landolsi, T. and Hassan, M. H. and Ezzeddine, M. and Abdelsalam, M. and Baseet, M.},
+  month = aug,
+  year = {2018},
+  keywords = {Internet of Things,Monitoring,Google,IoT,smart meters,mobile handsets,Prototypes,Smart grids,Smart meters,Raspberry Pi,Meters,integrated IoT-based smart utility meter,residential units,utility consumptions,utility service providers,@inCalibre,@report},
+  pages = {80-83},
+  file = {/home/rohit/Zotero/storage/BUMMJGMV/Al-Ali et al. - 2018 - An IoT-Based Smart Utility Meter.pdf}
+}
+
+@inproceedings{yaghmaeeDesignImplementationInternet2018,
+  title = {Design and {{Implementation}} of an {{Internet}} of {{Things Based Smart Energy Metering}}},
+  abstract = {Internet of Things (IoT) can be used to furnish intelligent management of energy distribution and consumption in heterogeneous circumstances. In the recent years, by the growth of IoT and digital technologies, smart grid has been becoming smarter than before. The future power grid needs to be implemented in a distributed topology that can dynamically absorb different energy sources. IoT can be utilized for various applications of the smart grid including distributed power plant monitoring, power generation and consumption prediction, power consumption monitoring, energy storage monitoring, smart meter, electric vehicle charging, power demand side management and various area of energy production. In this paper, by using the IoT capabilities, we have designed and implemented a smart energy metering platform consisting of smart plugs, gateway and cloud server.},
+  booktitle = {2018 {{IEEE International Conference}} on {{Smart Energy Grid Engineering}} ({{SEGE}})},
+  doi = {10.1109/SEGE.2018.8499458},
+  author = {Yaghmaee, M. H. and Hejazi, H.},
+  month = aug,
+  year = {2018},
+  keywords = {Internet of Things,smart grid,Servers,IoT,power consumption,power engineering computing,Power demand,Smart grids,smart power grids,power grid,energy management systems,smart meter,power meters,Smart Grid,Logic gates,Temperature sensors,power generation,power consumption monitoring,computerised monitoring,distributed power plant monitoring,distributed topology,energy distribution,Energy Monitoring,energy production,energy sources,energy storage monitoring,Gas detectors,intelligent management,Internet of Energy,power demand side management,smart energy metering,smart plugs,\#smartmeter:design,@inCalibre,@report},
+  pages = {191-194},
+  file = {/home/rohit/Zotero/storage/ZGBW2X6C/Yaghmaee and Hejazi - 2018 - Design and Implementation of an Internet of Things.pdf}
+}
+
+@inproceedings{luDesignImplementationPower2016,
+  title = {Design and {{Implementation}} of {{Power Information Visualization Platform Based}} on {{Smart Meter}}},
+  abstract = {User interaction is an important part of the smart grid construction. In order to allow power consumers to have a better understanding of their own household electricity, it is necessary to provide them with real-time electricity information. On the basis of intensive study of the electricity information acquisition system, this paper puts forward a construction scheme of power information visualization platform based on smart meter. The scheme only needs to upgrade and transform the carrier communication module of the smart meter instead of changing the existing electricity information acquisition system. As the modified module increases WiFi communication function, users can establish a communication link with their own smart meter through WiFi. The mobile phone can send a series of instructions which follow the DL/T 645-2007 protocol to call all kinds of power information and data in the smart meter. The platform shows the electricity information to users in a simple and intuitive way. Users can easily check a variety of household power information through the phone app. The platform solves the problem of difficult view of information in the electric meter. It expands application results of the smart meter, meanwhile promotes the friendly communication between the power grid and users.},
+  booktitle = {2016 3rd {{International Conference}} on {{Information Science}} and {{Control Engineering}} ({{ICISCE}})},
+  doi = {10.1109/ICISCE.2016.73},
+  author = {Lu, M. and Liu, S. and Liu, P. and Li, Q.},
+  month = jul,
+  year = {2016},
+  keywords = {Protocols,protocols,Real-time systems,smart meters,power consumption,power engineering computing,smart phones,home computing,Smart grids,smart power grids,domestic appliances,smart city,smart meter,Smart meters,carrier communication module transformation,carrier communication module upgrading,construction scheme,Data visualization,DL/T 645-2007 protocol,electricity information acquisition system,household electricity,household power information,IEEE 802.11 Standard,mobile phone,phone app,power consumers,power information visualization platform,real-time electricity information,smart grid construction,user interaction,visualization platform,WiFi communication function,\#smartmeter:datausage,@inCalibre,@report},
+  pages = {297-301},
+  file = {/home/rohit/Zotero/storage/JFVTEXJA/Lu et al. - 2016 - Design and Implementation of Power Information Vis.pdf}
+}
+
+@inproceedings{kolterREDDPublicData2011,
+  title = {{{REDD}}: {{A}} Public Data Set for Energy Disaggregation Research},
+  volume = {25},
+  shorttitle = {{{REDD}}},
+  booktitle = {Workshop on {{Data Mining Applications}} in {{Sustainability}} ({{SIGKDD}}), {{San Diego}}, {{CA}}},
+  author = {Kolter, J. Zico and Johnson, Matthew J.},
+  year = {2011},
+  keywords = {@to_cps,@NILM,@Dataset,\#smartmeter:design,@inCalibre,@report},
+  pages = {59--62},
+  file = {/home/rohit/Zotero/storage/SRM32JLS/Kolter and Johnson - 2011 - REDD A public data set for energy disaggregation .pdf}
+}
+
+@inproceedings{tripathyPrepaidEnergyMetering2010,
+  address = {{New York, NY, USA}},
+  series = {{{ICWET}} '10},
+  title = {Prepaid {{Energy Metering System Using SMS}}},
+  isbn = {978-1-60558-812-4},
+  abstract = {The basic aim of the work is to minimize the queue at the electric billing counters and to restrict the use of electricity automatically in case bill is not paid. The work also aims at proposing a system that will reduce the loss of power and revenue due to Power thefts and other illegal activities. The work system adopts totally new concept called prepaid electricity. The implementation of this will help in better energy management, conservation of energy and also in doing away with the unnecessary hassles over incorrect billing. The automated billing system will help track the real time consumption and will leave little scope for disagreement on consumption and billing.},
+  booktitle = {Proceedings of the {{International Conference}} and {{Workshop}} on {{Emerging Trends}} in {{Technology}}},
+  publisher = {{ACM}},
+  doi = {10.1145/1741906.1741944},
+  author = {Tripathy, A. K. and Andrades, G. and Almeida, R.},
+  year = {2010},
+  keywords = {SMS,smart metering,GSM networks,@inCalibre,@report},
+  pages = {182--184},
+  file = {/home/rohit/Zotero/storage/E948YUKA/Tripathy et al. - 2010 - Prepaid Energy Metering System Using SMS.pdf}
+}
+
+@inproceedings{palaniPuttingSmartMeters2014,
+  address = {{New York, NY, USA}},
+  series = {E-{{Energy}} '14},
+  title = {Putting {{Smart Meters}} to {{Work}}: {{Beyond}} the {{Usual}}},
+  isbn = {978-1-4503-2819-7},
+  shorttitle = {Putting {{Smart Meters}} to {{Work}}},
+  abstract = {The paper shows how smart meters can be put to work, beyond their traditional use, towards explaining abnormal and unexpected patterns in the behavior of electrical appliances. We describe two kinds of uses, by visualizing and analyzing smart meter data for an academic building. The first gives us the ability to find anomalous appliance behaviors and the other helps to discover sub-optimal energy consumption patterns. The goal is to stress the fact that the ubiquitous smart meter can act as a sensor not only for monitoring consumption but also for detecting interesting energy usage patterns.},
+  booktitle = {Proceedings of the 5th {{International Conference}} on {{Future Energy Systems}}},
+  publisher = {{ACM}},
+  doi = {10.1145/2602044.2602084},
+  author = {Palani, Kartik and Nasir, Nabeel and Prakash, Vivek Chil and Chugh, Amandeep and Gupta, Rohit and Ramamritham, Krithi},
+  year = {2014},
+  keywords = {smart buildings,anomaly detection,smart meter,@cited_cps,@sensing,@inCalibre,@report},
+  pages = {237--238},
+  file = {/home/rohit/Zotero/storage/U5DX8K2X/Beyond the Usual.pdf}
+}

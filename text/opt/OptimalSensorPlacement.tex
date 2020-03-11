@@ -1,0 +1,56 @@
+We now examine the following problem: identifying the number, type, and location of each sensor required for determining all the unique states of the system. A simple approach to make sure to identify all system the states is to install a sensor at each appliance or zone. The number of sensors needed in this case will be equal the number of appliances.
+
+We show now that the objective can be achieved by installing a smaller number of sensors by solving it as a linear optimization problem as follows.
+
+Let there be an electrical system than can be divided into $n$ zones represented by a set $$Z = \{z1, z2, z3 ... zn \}$$. Power consuption of zone can be represented by a set $$P_{zi} = \{p_{z1}.1, p_{z1}.2 ... p_{z1}.m1\}$$. Here zone one can consume one of the $m1$ possible power consumption possible. A zone can consume a power out of a finite number of significant power level. The total number of states in the system will be given by 
+
+\[
+|P|  = \prod_{i = 1}^{n} |P_{z1}|  
+\]
+
+
+Our example circuit will have 12 distinct system states, 12 being the product of the number of unique states of each of the appliances.
+
+We define the state of the system by a set of tuples 
+
+$$T = \{(p_1(t), p_2(t),...p_n(t))| p_1(t) \in P_{z1} , p_2(t) \in P_{z2} ... \}$$ 
+
+where each element of the tuple is the power consumed by a zone.
+
+In the system it is possible to install sensors at various places. Let these places be defined by the set $$L = \{l_1, l_2,...l_o\}$$
+
+at these places a number of parameters can be observed. These parameters are represented by a set $$F = \{f_1, f_2,...f_r\}$$
+
+Therefore the possible sensors that can be installed to observe different parameters can be given by set $$S = \{(l_i, f_j)| l_i \in L, f_j \in F\}$$ 
+
+Therefore the number of possible sensors is given by $|S| = |L| * |F|$
+
+Our objection is to select the minimum number sensors that when installed will provide sufficient information to identify the state of the entire system.
+
+In our example, the possible places where the sensors can be installed are 
+
+${Mains, Aplliance 1, Aplliance 2, Aplliance 3, SB 1, SB 2}$
+We are selecting only three type of sensors for this example namely 
+$$Power, Voltage, Current$$
+Here the power is sensed by an smart meter. As a smart meter will also profide voltage and current values, the voltage and a current values provide by the smart meter is but it is not counted as a seperated sensor. It is also assumed that a smart meter is installed by default at the mains. 
+
+The short notations used by different sensors are as follows. Current sensor at switchboard is 
+$$i_{s1}$$ 
+the current at the appliances are 
+$$i_{a1} , i_{a2}i_{a3}$$, 
+and the voltage at the appliances are 
+
+$$\Delta V_{a1}, \Delta V_{a2}, \Delta V_{a3}$$
+
+We define a decision variable $u_j$ as
+\begin{equation}
+u_{j} = \begin{cases} 1,& \text{if sensor } j \text{ is used } \\
+0, & \text{otherwise} \end{cases}
+\end{equation}
+The value sensed by sensor $j$ in system state $i$ is given by $x_{ij}$.
+%When the sensor is used, all the values sensed by it will be available for identification of the system state.
+The objective is to
+$$\min \sum u_j$$
+such that we obtain a distinct set of values for the system states, i.e.,
+$$|set(x_{ij} * u_j)| = m$$
+The problem is NP-hard as all the possible sensor placements should be checked for finding an optimal solution, making the time complexity of searching for the optimal solution, $O(2^n)$.

@@ -1,0 +1,6 @@
+The values of the voltage and current are much higher than the tolerance level of the electronics circuits and can hence damage the electronic components. The magnitude of the voltage and current should be scaled down significantly to measure it using a micro-controllers without damaging the electronics.
+
+Analog sensing is done in the micro-controllers by successive approximation circuit which holds and compares the voltage to be measured with the internally generated voltage. This successive approximation hardware can only measure the instantaneous values of the input voltage within the range of $0$ to $+V_{ref}$. The alternating current system values could not be measured by these micro-controllers directly because the values in the alternating current system may attain both positive and negative magnitude.
+
+The measurement quantities of the alternating current systems are the RMS values of the parameters. In order to compute these values for the entire cycle, the system should be capable of identifying the beginning and end of the cycle. It is difficult to identify this crossover in the software, therefore, it should be done in the hardware.
+

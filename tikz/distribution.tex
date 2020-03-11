@@ -1,0 +1,35 @@
+%%tikz -l shapes,arrows
+\tikzstyle{block} = [draw, fill=blue!20, rectangle, 
+    minimum height=2em, minimum width=3em]
+\tikzstyle{noblock} = [coordinate]
+\tikzstyle{output} = [coordinate]
+\tikzstyle{pinstyle} = [pin edge={to-,thick,black}]
+
+% The block diagram code is probably more verbose than necessary
+\begin{tikzpicture}[auto, node distance=1.5cm,>=latex']
+    % We start by placing the blocks
+    \node [pinstyle](feeder){Feeder};
+    \node [block, below=0.5cm of feeder](distribution) {Distribution};
+    
+    \node [noblock,below=0.7cm of distribution] (space1){} ;
+    
+    \node [block, right of=space1 ] (swithc2) {Switch Board 1};
+                    
+    \node [block, left of=space1] (swithc1) {Switch Board 2};
+    
+    \draw [draw,->] (feeder) -- (distribution);
+                    
+    \draw [draw,->] (distribution) -| (swithc1);
+    \draw [draw,->] (distribution) -| (swithc2);
+                    
+    \node [block, below=0.5cm of swithc1] (app1) {Appliance 1};
+    
+    \node [block, below=0.5cm of swithc2] (app2) {Appliance 2};
+    \node [noblock, right of=app2] (space3){} ;
+    \node [block, right of=space3] (app3) {Appliance 3};
+                    
+    \draw [draw,->] (swithc1) -- (app1);
+    \draw [draw,->] (swithc2) -- (app2);
+    \draw [draw,->] (swithc2) -| (app3);
+
+\end{tikzpicture}

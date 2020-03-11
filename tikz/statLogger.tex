@@ -1,0 +1,28 @@
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=5cm,thick]
+\tikzstyle{every state}=[]
+
+	\node[initial,state] (off) {Offline};
+	\node[state]         (save) [below of=off] {$Save Local$};
+	\node[state]         (rec) [right of=off] {$Recovery$};
+	\node[state]         (on) [right of=save] {$Online$};
+                    
+	\path (off) edge [dashed, bend left=15, red,sloped, anchor=center,above]  node {Timer} (save);
+	\path (save) edge [dashed, bend left=20, red, sloped, anchor=center,above]  node {Save complete} (off);
+
+	\path (off) edge [dashed, bend left=15, blue]  node {Server reachable} (rec);
+	\path (rec) edge [dashed, bend left=15, blue]  node {Batch recovery done} (off);
+
+	\path (rec) edge [dashed, bend left=0, blue, sloped, anchor=center,below]  node {No recovery data} (on);
+	
+	\path (on) edge [dashed, bend left=0, red, sloped, anchor=center,above]  node {Server not reachable} (off);
+
+
+%  \path (OOO) edge [dashed, bend left=15, blue]  node {x} (OOA);
+                    
+%  \path (OOA) edge [dashed, bend left=15, blue]  node {x} (OOB);
+                    
+%  \path (AOA) edge [dashed, bend left=15, red]  node {-x} (AOO);
+%  \path (ABO) edge [bend left=15]  node {-x} (OBO);
+                    
+
+\end{tikzpicture}

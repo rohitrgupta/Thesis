@@ -1,0 +1,90 @@
+% thesis.tex
+%
+% This file is root file for an example thesis written using the
+% IIT Bombay LaTeX 2Style file.
+% Created by Amey Karkare (21 June 2007)
+%
+% It is provided without warranty on an AS IS basis.
+
+%=====================================================================
+% Read: http://www.cse.iitb.ac.in/karkare/iitbthesis/
+%    FAQ.txt     for frequently asked quetions
+%    Changes.txt for changes
+%    README      for more information
+%=====================================================================
+
+%=====================================================================
+% DOCUMENT STYLE
+%=====================================================================
+% IITB PhD Thesis format default settings are:
+%   12pt, one-sided printing on a4 size paper
+
+% For two-sided printing, with Chapter starting on odd-numbered pages,
+% use the following line instead:  
+\documentclass[openright,twoside]{iitbthesis}
+%=====================================================================
+% OPTIONAL PACKAGES
+%=====================================================================
+% To include optional packages, use the \usepackage command.
+% For e.g., The package epsfig is used to bring in the Encapsulated
+%    PostScript figures into the document.
+%    The package times is used to change the fonts to Times Roman;
+%=====================================================================
+
+%=====================================================================
+% End of Preamble, start of document
+
+\input{chapters/defs}
+\begin{document}
+
+%=====================================================================
+	% Include the prelude for Title page, abstract, table of contents, etc
+% You need to modify it to contain your details
+	\input{prelude-defense}
+%=====================================================================
+% Include the technical part of the report
+	
+	\input{text/intro/intro}
+	\input{text/rel/rel}
+	\input{text/volt/volt}
+	\input{text/opt/opt}
+	\input{text/meter/meter}
+	\input{text/loc/loc}
+	\input{text/real/real}
+	\include{text/conc/conc}
+
+	% \section{Problems in Finding Fault Location}
+
+
+%=====================================================================
+% APPENDIX
+%****************************************************************
+% \include{appdix}
+
+%=====================================================================
+% BIBLIOGRAPHY
+%   This should follow the appendices, if any, otherwise summary and
+%   conclusions chapter.
+% Choose your bibliography style
+% plain is the basic style, others include ieeetr, siam, asm, etc
+\bibliographystyle{ieeetr}
+%\bibliographystyle{IEEEtran}
+%\bibliographystyle{acm}	
+%\bibliographystyle{nature}
+  
+%******************************************************************
+%                         Bibliography or References          
+%******************************************************************  
+\label{myreferences}
+\bibliography{ref}
+
+%*******************************************************************
+%                         List of publications               
+%******************************************************************
+\include{chapters/mypublications}
+
+%*******************************************************************
+%                        Acknowledgements                    
+%******************************************************************* 
+\include{chapters/myacknowledgements}
+\end{document}

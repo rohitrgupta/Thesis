@@ -1,0 +1,15 @@
+We present {\em a novel approach that senses voltage (differences) and utilizes it to obtain insights and accomplish tasks such as disaggregation}. We install the \textit{minimum number of sensors} needed to fully determine the system state. Our algorithm strategically places current or voltage sensors in a building to identify states without any confusion. We show the efficacy of our approach through a working example as well as through implementation and show the results when applied to our department's building.
+
+{\bf The Basic Idea}\label{IdentifyApp}
+
+{\em The inspiration for our approach} comes from an experience most of us would have had when a heavy current demanding appliance is switched ON: if you are in its vicinity, you can easily observe a visible dimming in the intensity of lights near the appliance. This side effect is often significant enough to be observed by the naked eye. Dimming of the light is caused by a drop in voltage at the appliance because of the voltage drop across the wire connecting the feeder to the appliance. This drop in the voltage is dependent on the power being delivered to the appliances.
+We show how this effect can be exploited for various purposes such as improving disaggregation performance, correct phase identification, data synchronization, and fault localization.
+
+%As we pointed out earlier when an appliance is switched on, the intensity of the lights in its vicinity decreases because of the drop in the voltage at the appliance and its surrounding appliances.
+Figure \ref{fig:voltageDrop} shows the power consumption of an Air conditioner with 1.8 Kilowatt power rating is switched ON and OFF. The voltage observed at the appliance level shows a significant drop at $A$ when the appliance is switched ON and rise at $B$ when the appliance is switched OFF. The drop in the voltage is significant and sharp enough for human observation as well as for measurement.
+
+It can be seen that the mains voltage is noisy, it is continuously changing (See Figure \ref{fig:voltageforday}). This continuous change in the mains voltage (due to various load and power generation transitions happening at the grid level), makes it difficult to identify whether a transition is due to noise or because of appliance operation.
+The variation in voltage because of noise is much larger than the voltage change caused by appliance operation. This makes it extremely difficult to measure the voltage change caused by the appliance.
+In order to eliminate this noise, the voltage can be sensed at another place in the premises and subtracted for noise cancellation.
+The most appropriate voltage to be used for noise cancellation is the voltage at the mains meter as it will not sense the variation caused by appliance operations within the system.
+The difference between the mains meter voltage and the appliance meter voltage produces a waveform almost identical to that of power measured at the appliance meter, as shown in Figure \ref{fig:voltageDrop}.

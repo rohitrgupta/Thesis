@@ -1,0 +1,11 @@
+Even when the data is sorted, the presence of duplicate sample or presence of two samples at one timestamp will create problem while joining multiple meter data. To complete the drop in voltage at a given time, the voltage measured at two places should be compared. If all the meters meter had two records for a timestamp, joining the data from two meters will produce a total of $2^n$ records, which is the cartesian products. This causes two problems in the analysis.
+    Memory requirement grows exponentially
+    Learning gets skewed when different records get duplicated a different number of times.
+
+As the data is already sorted duplicate data removal should satisfy the following two rules:
+\begin{enumerate}
+ \item No data should be repeated
+ \item No timestamp should have more than one record for a meter
+\end{enumerate}
+
+duplicates are removed using algorithm \ref{algo:duplicate}

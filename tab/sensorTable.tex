@@ -1,0 +1,23 @@
+\begin{table}[htb]
+	\centering
+	\caption{Power, Current and Voltage difference sensed by all possible sensors for all possible states (load combinations) of the Appliances.}
+	\begin{tabular}{@{}cccccccccccc@{}}
+		State  &  $P_{a1}$  &  $P_{a2}$   &  $P_{a3}$   &  $S_{PMains}$  &  $S_{ia1}$  &  $S_{ia2}$   &  $S_{ia3}$   &  $S_{s1}$   &  $ S_{\Delta Va1}$  &  $S_{\Delta Va2}$  &  $S_{\Delta V a3}$ \\
+	\midrule
+		OOO  &  0  &   0  &   0  &  \cellcolor{green!20}0  &  0  &   0  &   0  &   0  &   0  &   0  &   0 \\
+		OOA  &  0  &   0  &   x  &  \cellcolor{green!20}x  &  0  &   0  &   y  &   y  &   0  &   z  &  2z \\
+		OOB  &  0  &   0  &  2x  &  \cellcolor{green!20}2x  &  0  &   0  &  2y  &  2y  &   0  &  2z  &  4z \\
+		OBO  &  0  &  2x  &   0  &  \cellcolor{green!20}2x  &  0  &  2y  &   0  &  2y  &   0  &  4z  &  2z \\
+		OBA  &  0  &  2x  &   x  &  \cellcolor{green!20}3x  &  0  &  2y  &   y  &  3y  &   0  &  5z  &  4z \\
+		OBB  &  0  &  2x  &  2x  &  \cellcolor{green!20}4x  &  0  &  2y  &  2y  &  4y  &   0  &  6z  &  6z \\
+		AOO  &  x  &   0  &   0  &  \cellcolor{green!20}x  &  y  &   0  &   0  &   0  &  2z  &   0  &   0 \\
+		AOA  &  x  &   0  &   x  &  \cellcolor{green!20}2x  &  y  &   0  &   y  &   y  &  2z  &   z  &  2z \\
+		AOB  &  x  &   0  &  2x  &  \cellcolor{green!20}3x  &  y  &   0  &  2y  &  2y  &  2z  &  2z  &  4z \\
+		ABO  &  x  &  2x  &   0  &  \cellcolor{green!20}3x  &  y  &  2y  &   0  &  2y  &  2z  &  4z  &  2z \\
+		ABA  &  x  &  2x  &   x  &  \cellcolor{green!20}4x  &  y  &  2y  &   y  &  3y  &  2z  &  5z  &  4z \\
+		ABB  &  x  &  2x  &  2x  &  \cellcolor{green!20}5x  &  y  &  2y  &  2y  &  4y  &  4z  &  6z  &  6z \\
+		Rows &   &   &   &   &   10  &  8   &  12    &   10    &   10     &   12     &   10 \\
+	\bottomrule
+	\end{tabular}
+	\label{tab:sensorTable}
+\end{table}

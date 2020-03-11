@@ -1,0 +1,44 @@
+We will prove that \textit{Subset Cover} can be reduced to \textit{Sensor Selection} problem in polynomial time. Therefore the \textit{Sensor Selection} problem is at least as hard as \textit{Subset Cover} problem.
+
+    \textbf{Subset Cover Problem}
+
+Given a family of sets $E$ and a universe $U$ where $\cup E = U$, the objective is to find the smallest set of sets $C$, such that $C \subset E$ and $\cup C = U$.
+
+	\textbf{Sensor Selection problem}
+
+Given an electrical system which can be in one of the states in set $T$, and a set of sensors $S$. Each sensor when installed will sense values given by set of values $Q$ such that
+\begin{equation} \label{eq:reduction1}
+|Q|>1
+\end{equation}
+
+Our objective is to find out the minimum number of sensors which when installed will provide tuple of sensed values each state, given by matrix $R$ such that the sensed values are unique for each state.
+
+\begin{equation} \label{eq:reduction2}
+\forall q,r \in R, q \ne r
+\end{equation}
+
+Each sensor will sense some value for each sensor state and the distinct values sensed by a sensor should be more than one else it will not contribute to the uniqueness of the sensed values.
+
+\textbf{Reduction Function }
+
+For problem translation we will map each set to a sensor and each element of the set $U$ to a state in the electrical system. The value sensed by a sensor in a state will be given by the index value of the set element in $U$.
+%rg
+To meet the condition given in the equation \ref{eq:reduction1}, we define a new element $e_0 \notin U$, and add it to each set.
+% rg end
+Therefore sets $U_1 = U + e_0$  and $E_1 = E + e_0$.
+
+The reduction function will construct a table with values using following equation.
+
+\begin{equation*}
+u_{ij} = \begin{cases}    index(e_j),& \text{ if } e_j \in E \\    0,& \text{otherwise} \end{cases}
+\end{equation*}
+
+As translation will be required for each sensor and state in the system, the complexity of the function is $O(mn)$.
+
+\textbf{Validation Function}
+
+A polynomial time function is required to validate if the given set of sensors is a valid solution of the problem. This function will check if $|U_1| == |T_s|$. Unique elements in a list of values can found out in linear time by using a hash function. Therefore the time complexity of the validation function will be $O(n)$.
+
+\textbf{Translation of the Solution}
+
+The set of sensors selected by the algorithm will be the same as the set of subsets i.e. $C = S$, Therefore no translation will be required for the solution.

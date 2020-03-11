@@ -1,0 +1,30 @@
+\scalebox{.8}{
+\begin{circuitikz}
+  %\draw
+  %(0, 0) node[op amp] (opamp) {}
+  %(opamp.-) to[R] (-3, 0.5)
+  %(opamp.-) to[short,*-] ++(0,1.5) coordinate (leftC)
+  %to[R] (leftC -| opamp.out)
+  %to[short,-*] (opamp.out);
+  %;
+  \draw (5, 4) node (v1low)[label=above:$V_{sig}$]{};
+  \draw (5, 3) node (v2low)[label=above:$V_{ref}$]{};
+
+  \draw (7, 3) node (vbias){};
+  
+  \draw (7, 1) node[] (gnd1){};
+  \draw (8, 1) node[ground] (gnd2){};
+  
+  \draw (9.2, 3.5) node[op amp] (opamp) {};
+  \draw (11, 3.5) node (out)[label=above:Trig]{};
+  
+  \draw (v1low) to[short] (opamp.-)	;
+  \draw (v2low) to[R,l=$470K$] (opamp.+)	;
+  
+  \draw (opamp.+) to[R, l=$470K$] (gnd2)	;
+  \draw (vbias) to[C, l_=$1\mu$] (gnd1)-- (gnd2)	;
+  
+  
+  \draw (opamp.out) to[short, -*] (out)	; 
+\end{circuitikz}
+}

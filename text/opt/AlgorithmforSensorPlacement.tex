@@ -1,0 +1,40 @@
+Our algorithm adopts a greedy approach. %which provide a solution in between the two extremes.
+The input to the algorithm is a table consisting of all the values for $x_{ij}$
+where each row represents a system state, and each column represents a sensor.
+It adds one sensor at a time such that, when added, it produces the largest increase in the set of distinct sensed values.
+
+The values in the table \ref{tab:sensorTable} for the sample layout are constructed as follows:
+Columns ${P_{a1..a3}}$ are the appliance level power values based on the table \ref{tab:sensorTable}. For this running example, the appliance power values are used to assign the values sensed by different sensors. The smart meter installed at the mains $S_{PMains}$ will sense the total power consumption which is the sum of the power consumed by all the appliances. The current sensors $S_{ia1..ia3}$ can be installed at the individual appliances.
+
+Values that would be sensed by the current sensors is given by appliance power and equation \ref{eq:currentValue}. For example, for the state (O,B,A) the power consumption for appliance 1, 2 and 3 will be $0$, $2x$ and $x$ Watts respectively.
+The current drawn by these appliances will be $0$, $2y$ and $y$ respectively, for some $y$.
+Current sensors can also be installed at the switchboard to sense the total current consumed by the appliances supplied through the switchboard. Sensor $S_{s1}$ installed at the \textit{switchboard 1} will observe the sum of $i_{a2}$ and $i_{a3}$.
+
+Values for voltage sensors $S_{\Delta V1..\Delta V3}$, installed to sense the voltage drop at respective appliance, can be computed using the equations \ref{eq:voltageeq} and \ref{eq:voltageDrop}.
+for example for the state (O,B,A) the current drawn by the appliances will be 0, 2y and y respectively, thus voltage drops at each appliance will be 0, 5z and 4z respectively.
+
+
+In Algorithm \ref{alg1}, ($T$) is the table that has the set of sensors ($S$) already installed in the system and $h$ the desired maximum number of sensors.
+The variable $S_{sel}$ holds the currently selected set of sensors, and $T_{sel}$ the projected part of the table consisting only of selected columns. The set of sensors finally chosen for installation is returned in ($S_{sel}$).  Function $Project$  accepts two parameters, $T$, a table containing the values sensed and a set of sensors $S_{sel}$ and returns the table consisting of the columns for the sensor set $S_{sel}$.
+Function $set$  returns the distinct tuples from the given table.
+
+Initially, the list of sensors already installed will be just the mains meter that is $S = [S_{PMains}]$.
+$S_{PMains}$ is the power measured by the mains meter.
+In each iteration, $argmax$ will select a sensor which when added to the existing list $S_{sel}$ will result in a new projected table $T_{sel}$ with the maximum number of unique rows.
+For example, when only mains meter is installed, only $S_{PMains}$ will be projected in $T_{sel}$.
+The set of distinct values in the columns listed  in $T_{sel}$ will be $\{0,x,2x,3x,4x,5x\}$ and the size of the set will be 6.
+
+Suppose $S_{ia1}$ is also added to $S_{sel}$ the distinct values in $T_{sel}$ will be $\{(0,0),(x,0),$ $ (2x,0),(3x,0),(4x,0),$ $ (x,y),(2x,y),(3x,y),$
+$(4x,y),$ $(5x,y)\}$ and its size of the set will be 10.
+But, suppose we add $S_{ia3}$
+ $T_{sel}$ will be maximum (12): $\{(0,0), (x,y), (2x,2y),$ $ (2x,0),$ $ (3x,y),$ $ (4x,2y),$ $ (x,0),$ $(2x,y),$ $ (3x,2y),$ $ (3x,0),$ $(4x,y),$ $ (5x,2y)\}$.
+ Alternatively, if  we choose  $S_{\Delta Va2}$ ,
+ the size of $T_{sel}$ will also be 12: $\{(0,0),$ $(x,z),$ $ (2x,2z),$ $ (2x,4z),$ $(3x,5z),$ $(4x,6z),$ $(x,0),$ $(2x,z),$ $(3x,2z),$ \\$(3x,4z),(4x,5z),(5x,6z)\}$.
+
+Thus, the number of rows will be equal to the total number of states when either $S_{PMains}$ with $S_{ia3}$ or $S_{PMains}$ with $S_{\Delta Va3}$ are installed. Therefore the algorithm will return one of these two pairs of sensors.
+%r
+% \textbf{Added Text}
+
+When current sensors are installed close to the appliances to monitor each appliance, the number of sensors required will be equal to the number of appliances. Following placement algorithm will provide a solution which will produce the same result with significantly less number of sensors.
+
+The Greedy algorithm not only provides a solution to the sensor placement problem, but it also enables us to incrementally install sensors while maximizing the system observability with the given number of sensors. In a building where smart meters are already installed the voltage readings provided by the meters can improve the disaggregation output without installing any other additional hardware. Even when all the appliances are monitored by power meters, voltage sensing can be used as a backup mechanism when some of the sensors fail.

@@ -1,0 +1,83 @@
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3.5cm,semithick,scale=0.7, every node/.style={scale=0.7}]
+\tikzstyle{every state}=[]
+
+  \node[initial,state] (OOO) {$O,O,O$};
+  \node[state]         (AOO) [below of=OOO] {$A,O,O$};
+  \node[state]         (OBO) [below of=AOO] {$O,B,O$};
+  \node[state]         (ABO) [below of=OBO] {$A,B,O$};
+                    
+  \node[state]         (OOA) [right of=OOO] {$O,O,A$};
+  \node[state]         (AOA) [right of=AOO] {$A,O,A$};
+                    
+  \node[state]         (OOB) [right of=OOA] {$O,O,B$};
+  \node[state]         (AOB) [right of=AOA]  {$A,O,B$};
+
+  \node[state]         (OBA) [right of=OBO] {$O,B,A$};
+  \node[state]         (ABA) [right of=ABO] {$A,B,A$};
+                    
+  \node[state]         (OBB) [right of=OBA] {$O,B,B$};
+  \node[state]         (ABB) [right of=ABA]  {$A,B,B$};
+
+  \path (OOO) edge [dashed, bend left=15, blue]  node {x} (OOA)
+        (OOO) edge [dashed, bend left=15, blue]  node {x} (AOO)
+        (OOA) edge [dashed, bend left=15, blue]  node {x} (AOA)
+        (AOO) edge [bend left=15]  node {x} (AOA);
+  \path (OBO) edge [dashed, bend left=15, blue]  node {x} (OBA)
+        (OBO) edge [dashed, bend left=15, blue]  node {x} (ABO)
+        (OBA) edge [dashed, bend left=15, blue]  node {x} (ABA)
+        (ABO) edge [bend left=15]  node {x} (ABA);
+                    
+  \path (OOA) edge [dashed, bend left=15, blue]  node {x} (OOB)
+		(OOB) edge [bend left=15]  node {x} (AOB)
+		(AOA) edge [bend left=15]  node {x} (AOB);
+  \path (OBA) edge [bend left=15, red]  node {x} (OBB)
+		(OBB) edge [bend left=15]  node {x} (ABB)
+		(ABA) edge [bend left=15]  node {x} (ABB);
+                    
+  \path (AOO) edge [bend left=15]  node {-x} (OOO)
+        (OOA) edge [bend left=15]  node {-x} (OOO)
+        (AOA) edge [dashed, bend left=15, red]  node {-x} (AOO)
+        (AOA) edge [dashed, bend left=15, red]  node {-x} (OOA);
+  \path (ABO) edge [bend left=15]  node {-x} (OBO)
+        (OBA) edge [bend left=15]  node {-x} (OBO)
+        (ABA) edge [dashed, bend left=15, red]  node {-x} (ABO)
+        (ABA) edge [dashed, bend left=15, red]  node {-x} (OBA);
+                    
+  \path (AOB) edge [dashed, bend left=15, red]  node {-x} (OOB)
+		(AOB) edge [dashed, bend left=15, red]  node {-x} (AOA)
+		(OOB) edge [bend left=15]  node {-x} (OOA);
+  \path (ABB) edge [dashed, bend left=15, red]  node {-x} (OBB)
+		(ABB) edge [dashed, bend left=15, red]  node {-x} (ABA)
+		(OBB) edge [bend left=15]  node {-x} (OBA);
+                    
+  \path (OOO) edge [dashed, bend left, blue]  node {2x} (OOB)
+		(AOO) edge [dashed, bend left, blue]  node {2x} (AOB);
+                    
+  \path (AOB) edge [bend left]  node {-2x} (AOO)
+		(OOB) edge [bend left]  node {-2x} (OOO);
+                    
+  \path (OBO) edge [bend left]  node {2x} (OBB)
+		(ABO) edge [bend left]  node {2x} (ABB);
+                    
+  \path (ABB) edge [dashed, bend left, red]  node {-2x} (ABO)
+		(OBB) edge [dashed, bend left, red]  node {-2x} (OBO);
+                    
+  \path (OOO) edge [dashed, bend left, blue]  node {2x} (OBO)
+		(AOO) edge [dashed, bend left, blue]  node {2x} (ABO);
+
+  \path (ABO) edge [bend left]  node {-2x} (AOO)
+		(OBO) edge [bend left]  node {-2x} (OOO);
+                    
+  \path (OOB) edge [bend left]  node {2x} (OBB)
+		(AOB) edge [bend left]  node {2x} (ABB);
+                    
+  \path (ABB) edge [dashed, bend left, red]  node {-2x} (AOB)
+		(OBB) edge [dashed, bend left, red]  node {-2x} (OOB);
+
+  \path (OOA) edge [bend left]  node {2x} (OBA)
+		(AOA) edge [bend left]  node {2x} (ABA);
+                    
+  \path (OBA) edge [bend left]  node {-2x} (OOA)
+		(ABA) edge [bend left]  node {-2x} (AOA);
+
+\end{tikzpicture}
